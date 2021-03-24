@@ -1,1 +1,1 @@
-coming soon
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f3c6e7b9-f4a6-4fa9-8c5c-c91bb4ec8254/deploy-status)](https://app.netlify.com/sites/dreamy-shockley-6804ba/deploys)
