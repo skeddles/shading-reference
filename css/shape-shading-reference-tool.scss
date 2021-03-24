@@ -1,0 +1,52 @@
+@import 'dat.gui.css';
+
+$bg: #202632;
+
+body {
+	margin: 0;
+	background: $bg;
+	color: white;
+	font-family: 'Exo 2', sans-serif;
+	color: lighten($bg, 60%);
+} 
+
+canvas {
+	display: block;
+}
+
+section.wrapper {
+	max-width: 1200px;
+	margin: 1em auto;
+
+	h1 {
+		color: lighten($bg, 40%);
+	    font-weight: 900;
+	    font-size: 2.5em
+	}
+}
+
+#threes-container {
+	background: darken($bg, 10%);
+	padding: 1em;
+	border-radius: 1em;
+
+	position: fixed; 
+	height: 90vh;
+	width: 90vh;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	//hidden by default
+	//display: none;
+
+	&.visible {
+		display: block;
+	}
+}
+
+#gui {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
