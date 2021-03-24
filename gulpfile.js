@@ -26,10 +26,10 @@ gulp.task("html", function () {
 	return gulp.src('html/*.htm')
 		.pipe(gulp.dest("./build"));
 });
-
+ 
 //js task - combines and minimizes js files in /scripts directory
 gulp.task("js", function() {
-	return gulp.src('js/*.js')
+	return gulp.src(['js/*.js','!js/_*.js'])
 
 		.pipe(include({includePaths: ['js']})).on('error', console.log)
 		//.pipe(sourcemaps.init())
@@ -40,7 +40,7 @@ gulp.task("js", function() {
 
 //css task - processes sass and minimizes scss files in /sass directory
 gulp.task("css", function(done) {
-	return gulp.src('css/*.scss')
+	return gulp.src(['css/*.scss','!css/_*.scss'])
 		.pipe(sourcemaps.init())
 		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 		.pipe(sourcemaps.write('maps'))
