@@ -11,13 +11,13 @@ function initGui () {
 	gui.object.open();
 
 		//shape dropdown
-		var shapeChoice = gui.object.add(display, 'selectedShape', Object.keys(display.shapes));
-		shapeChoice.onChange(() => {
-			scene.remove(display.currentShape);
-			display.currentShape = display.shapes[display.selectedShape];
-			scene.add(display.currentShape);
-			display.currentShape.position.y = 0.5;
-		});
+		gui.object.add(display, 'selectedShape', Object.keys(display.shapes))
+			.onChange(() => {
+				scene.remove(display.currentShape);
+				display.currentShape = display.shapes[display.selectedShape];
+				scene.add(display.currentShape);
+				display.currentShape.position.y = 0.5;
+			});
 
 		gui.object.addColor(new ColorGUIHelper(sun, 'color'), 'value').name('color');
 
@@ -25,13 +25,22 @@ function initGui () {
 	gui.camera = gui.addFolder('Camera');
 	gui.camera.open();
 
-		gui.camera.add(display.cameras.perspective.position, 'x', 0, 2, 0.01);
+		gui.camera.add(display.cameras.perspective, 'rotateAround', 0, 360, 1)
+			.onChange(() => {
+				camera_pivot.rotation.y = degreesToRadians(display.cameras.perspective.rotateAround);
+			});
+
+		gui.camera.add(display.cameras.perspective, 'rotateUp', 0, 360, 1)
+			.onChange(() => {
+				camera_pivot.rotation.z = degreesToRadians(display.cameras.perspective.rotateUp);
+			});
 
 	//LIGHT SETTINGS
 	gui.light = gui.addFolder('Light');
 	gui.light.open();
 
-		gui.light.add(sun, 'intensity', 0, 2, 0.01);
+		gui.light.add(sun, 'intensity', 0, 10, 0.01);
+
 }
 
 	
