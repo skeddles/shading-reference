@@ -17,6 +17,11 @@ var imagemin = require("gulp-imagemin");
 var through = require('through2');
 var svg = require('handlebars-helper-svg');
 
+//environment specific settings
+console.log('ENV:',process.env.LIVE?'live':'dev');
+var cssStyle = process.env.LIVE?'compressed':'compressed';
+var jsDropConsole = process.env.LIVE==true;
+
 //████████████████████████████████████████████████████████████████████████████████
 //████████████████████████████████ TASKS █████████████████████████████████████████
 //████████████████████████████████████████████████████████████████████████████████
@@ -33,7 +38,7 @@ gulp.task("js", function() {
 
 		.pipe(include({includePaths: ['js']})).on('error', console.log)
 		//.pipe(sourcemaps.init())
-		.pipe(uglify({compress: {drop_console: true }})).on('error', console.log)
+		.pipe(uglify({compress: {drop_console: jsDropConsole }})).on('error', console.log)
 		//.pipe(sourcemaps.write('./maps'))
 		.pipe(gulp.dest("./build/js"));
 });
@@ -42,7 +47,7 @@ gulp.task("js", function() {
 gulp.task("css", function(done) {
 	return gulp.src(['css/*.scss','!css/_*.scss'])
 		.pipe(sourcemaps.init())
-		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+		.pipe(sass({outputStyle: cssStyle}).on('error', sass.logError))
 		.pipe(sourcemaps.write('maps'))
 		.pipe(gulp.dest("./build/css"));
 });

@@ -23,6 +23,10 @@ section.wrapper {
 	    font-weight: 900;
 	    font-size: 2.5em
 	}
+
+	h2 {
+		text-transform: capitalize;
+	}
 }
 
 #threes-container {
@@ -61,6 +65,14 @@ section.wrapper {
 		input {
 			background: darken($bg, 15%);
 			border-radius: 0.25em;
+		}
+	}
+
+	li.subOption {display: none; }
+
+	&.showToonOptions {
+		li.subOption.toon {
+			display: block;
 		}
 	}
 }

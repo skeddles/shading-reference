@@ -6,4 +6,12 @@ const display = {
 	shapes: {},
 	cameras: {},
 	currentCamera: null,
+	shading: 'smooth',
+	toon = {shades: 3},
 };
+
+const PRESETS = {
+	sphere: [{}],
+	cube: [{}],
+	cylinder: [{}],
+}
