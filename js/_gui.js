@@ -2,7 +2,7 @@
 function initGui () {
 
 	//initialize gui
-	const gui = new dat.GUI();
+	gui = new dat.GUI();
 	gui.domElement.id = 'gui';
 	$('#threes-container').appendChild(gui.domElement);
 
@@ -11,7 +11,7 @@ function initGui () {
 	gui.object.open();
 
 		//shape dropdown
-		gui.object.add(display, 'selectedShape', Object.keys(display.shapes))
+		gui.object.shape = gui.object.add(display, 'selectedShape', Object.keys(display.shapes))
 			.name('shape')
 			.onChange(() => {
 				scene.remove(display.currentShape);
@@ -22,7 +22,7 @@ function initGui () {
 			});
 
 		//color
-		gui.object.addColor(new ColorGUIHelper(sun, 'color'), 'value').name('color');
+		gui.object.color = gui.object.addColor(new ColorGUIHelper(sun, 'color'), 'value').name('color');
 
 	//CAMERA
 	gui.camera = gui.addFolder('Camera');

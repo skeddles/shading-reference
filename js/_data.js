@@ -10,8 +10,4 @@ const display = {
 	toon = {shades: 3},
 };
 
-const PRESETS = {
-	sphere: [{}],
-	cube: [{}],
-	cylinder: [{}],
-}
+var gui = {}; 

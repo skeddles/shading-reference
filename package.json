@@ -11,6 +11,7 @@
 	"author": "skeddles",
 	"license": "UNLICENCED",
 	"dependencies": {
+		"async": "^3.2.0",
 		"gulp": "^4.0.2",
 		"gulp-hb": "^8.0.0",
 		"gulp-imagemin": "^7.1.0",
@@ -20,8 +21,7 @@
 		"gulp-sourcemaps": "^3.0.0",
 		"gulp-uglify": "^3.0.2",
 		"gulp-util": "^3.0.8",
-		"handlebars-helper-svg": "^2.0.2",
-		"http-server": "^0.12.3",
+		"puppeteer": "^8.0.0",
 		"through2": "^4.0.2",
 		"uglify-es": "^3.3.9"
 	}

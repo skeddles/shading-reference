@@ -1,4 +1,4 @@
-//=include lib/three.js 
+//!=include lib/three.js 
 //=include lib/dat.gui.js
 //=include util/util.js
 
@@ -6,7 +6,12 @@
 //=include _gui.js
 //=include _newToonMaterial.js
 
-const container = $('#threes-container');
+
+
+
+const PRESETS = 
+//=include ../examples.json
+const container = $('#threes-container'); // I know your IDE says there's an error here, it's just because of the included presets line above. ignore it.
  
 $('.testtesttest').addEventListener('click', e => {
 	e.preventDefault();
@@ -43,7 +48,6 @@ scene.add( gridHelper );
 //create renderer
 var renderer = new THREE.WebGLRenderer({alpha: true, antialias: true,physicallyCorrectLights: true});
 renderer.setClearColor( 0x000000, 0 ); //make transparent
-renderer.setSize( container.offsetHeight, container.offsetHeight);
 container.appendChild( renderer.domElement );
 renderer.physicallyCorrectLights = true;
 //generic material
@@ -106,37 +110,60 @@ presetCats.forEach(c => {
 console.log(PRESETS[c])
 
 	//loop through all presets in category
-	PRESETS[c].forEach(p=>{
-		console.log('rendering preset',c,p)
+	for (var i = 0; i < PRESETS[c].length; i++) {
 
 		let example = document.createElement('div');
 		exampleholder.appendChild(example);
 
-		//scene
-		let examplescene = new THREE.Scene();
+		let presetData = PRESETS[c][i];
+		
 
-		//shape
-		let exampleshape = new THREE.Mesh( new THREE.SphereBufferGeometry(0.5, 16, 16), material);
-		examplescene.add(exampleshape);
+		let formattedPresetData = JSON.stringify(presetData)
 
-		//light
-		let examplelight = new THREE.DirectionalLight(0xFFFFFF, 1);
-		examplelight.position.set(1, 2, 1);
-		examplelight.target.position.set(0, 0.5, 0);
-		examplelight.target.updateMatrixWorld();
-		examplescene.add(examplelight);
+		console.log(i, c, presetData, formattedPresetData)
 
-		var examplerenderer = new THREE.WebGLRenderer({alpha: true, antialias: true,physicallyCorrectLights: true});
-		examplerenderer.setClearColor( 0x000000, 0 ); //make transparent
-		examplerenderer.setSize(200, 200);
-		exampleholder.appendChild( examplerenderer.domElement );
-		examplerenderer.physicallyCorrectLights = true;
-	});
+		exampleholder.innerHTML += '<img class="preset" data-preset=\''+formattedPresetData+'\' src="/images/thumbnails/'+c+'-'+(i+1)+'.png" />';
+
+	} 
 });
 
 $('.examples').insertAdjacentHTML('beforeend', html);
 
+//add click handler for preset buttons
+document.addEventListener('click', e=>{
+	//if it was something other than one of the preset buttons
+	if (!e.target.classList.contains('preset')) {
+		//check if the editor is open, and you clicked outside of the popup, close it
+		if (document.body.classList.contains('editorOpen') && !e.target.closest('#threes-container')) 
+			document.body.classList.remove('editorOpen'); 
 
+		//stop processing click
+		return;
+	};
+
+	console.log(e.target, e.target.dataset.preset)
+	let data = JSON.parse(e.target.dataset.preset);
+
+	console.log('preset',data)
+	//loop through preset data values and apply them to model
+	/*for (const [key, value] of Object.entries(data)) {
+		console.log(`${key}: ${value}`);
+	}*/
+	function loadExampleData(data,guiObj,data)	{
+		for (var k in data) {
+			if (typeof data[k] == "object" && data[k] !== null)
+				loadExampleData(data[k],guiObj[k],data[k]); 
+			else {
+				console.log('> setting',guiObj[k].domElement,'to',data[k]);
+				guiObj[k].setValue(data[k]);
+			}
+		}
+	} loadExampleData(data,gui,data);
+
+	//show renderer (and make sure to resize it)
+	$('body').classList.add('editorOpen');
+	renderer.setSize( container.offsetHeight, container.offsetHeight);
+});
 
 //render
 function animate() {

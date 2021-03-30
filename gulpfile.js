@@ -15,7 +15,7 @@ var handlebars = require('gulp-hb');
 var rename = require("gulp-rename");
 var imagemin = require("gulp-imagemin");
 var through = require('through2');
-var svg = require('handlebars-helper-svg');
+var generateThumbnails = require('./generate-thumbnails.js');
 
 //environment specific settings
 console.log('ENV:',process.env.LIVE?'live':'dev');
@@ -44,12 +44,26 @@ gulp.task("js", function() {
 });
 
 //css task - processes sass and minimizes scss files in /sass directory
-gulp.task("css", function(done) {
+gulp.task("css", function() {
 	return gulp.src(['css/*.scss','!css/_*.scss'])
 		.pipe(sourcemaps.init())
 		.pipe(sass({outputStyle: cssStyle}).on('error', sass.logError))
 		.pipe(sourcemaps.write('maps'))
 		.pipe(gulp.dest("./build/css"));
+});
+
+//img project task - minimizes gif,png,jpg,svg files for projects - in /img
+gulp.task("image", function() {
+	return gulp.src(' images/**/*.*')
+		//minify
+		.pipe(imagemin())
+		//out
+		.pipe(gulp.dest('build/images'));
+});
+
+//img project task - minimizes gif,png,jpg,svg files for projects - in /img
+gulp.task("thumbnails", function(done) {
+	generateThumbnails(done);
 });
 
 //████████████████████████████████████████████████████████████████████████████████
@@ -62,7 +76,9 @@ gulp.task('default',
 	gulp.series(
 		'html',
 		'css',
+		'image',
 		'js',
+		'thumbnails'
 	)
 );
 
@@ -75,10 +91,16 @@ gulp.task('watch', function(){
     gulp.watch(['html/*.htm'], gulp.series('html'));
 
     //watch scripts folder for changes in any files
-    gulp.watch(['js/**/*.js'], gulp.series('js'));
+    gulp.watch(['js/**/*.js*'], gulp.series('js'));
 
-    //watch sass folder for changes in any files
+    //watch sass folder for changes in any files 
     gulp.watch(['css/**/*.scss'], gulp.series('css'));
+
+    //watch image folder for changes in any files 
+    gulp.watch(['images/**/*.*'], gulp.series('image'));
+
+    //watch example file for changes
+    gulp.watch(['examples.json'], gulp.series('thumbnails','js'));
 
 });
 

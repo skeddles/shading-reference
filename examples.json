@@ -1,0 +1,70 @@
+{
+	"sphere": [
+		{},
+		{
+			"object": {
+				"color": "#ff0000"
+			}
+		},
+		{
+			"object": {
+				"color": "#00ff00"
+			}
+		},
+		{
+			"object": {
+				"color": "#0000ff"
+			}
+		}
+	],
+	"cube": [
+		{
+			"object": {
+				"shape": "cube"
+			}
+		},
+		{
+			"object": {
+				"shape": "cube",
+				"color": "#ff0000"
+			}
+		},
+		{
+			"object": {
+				"shape": "cube",
+				"color": "#00ff00"
+			}
+		},
+		{	
+			"object": {
+				"shape": "cube",
+				"color": "#0000ff"
+			}
+		}
+	],
+	"cylinder": [
+		{
+			"object": {
+				"shape": "cylinder"
+			}
+		},
+		{
+			"object": {
+				"shape": "cylinder",
+				"color": "#ff0000"
+			}
+		},
+		{
+			"object": {
+				"shape": "cylinder",
+				"color": "#00ff00"
+			}
+		},
+		{
+			"object": {
+				"shape": "cylinder",
+				"color": "#00ffff"
+			}
+		}
+	]
+}
