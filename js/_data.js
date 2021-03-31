@@ -3,7 +3,7 @@
 const display = {
 	currentShape: null,
 	selectedShape: null,
-	shapes: {},
+	shapes: {}, 
 	cameras: {},
 	currentCamera: null,
 	shading: 'smooth',
