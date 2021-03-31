@@ -108,6 +108,36 @@ body:not(.editorOpen) #threes-container {display: none;}
 			border-radius: 0.25em;
 		}
 
+		//checkboxes
+		&.boolean .c {
+			input {display: none};
+			label {
+				display: inline-block;
+				width: 1.5em;
+				height: 1.5em;
+				background-repeat:no-repeat;
+				background-position: center center;
+				background-size: 65%;
+				position: relative;
+				background-color: #020303;
+				border-radius: 0.25em;
+				pointer-events: none;
+				
+				&::after {
+					content: 'disabled';
+					margin-left: 2em;
+					color: lighten($bg, 20%);
+					font-style: italic;
+					position: relative;
+					top: -0.125em;
+				}
+			}
+			input:checked + label {
+				background-image: url('/images/checkmark.png');
+				&::after {content: 'enabled';}
+			}
+		}
+
 		select {
 			//stuff
 			background-color:$bg;

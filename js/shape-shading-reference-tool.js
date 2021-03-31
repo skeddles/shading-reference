@@ -55,6 +55,9 @@ renderer.physicallyCorrectLights = true;
 //generic material
 var material = new THREE.MeshPhongMaterial({color: 0x726672});
 //material.shininess = 150;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
 
 //create shapes
 display.shapes.cube = new THREE.Mesh(new THREE.BoxGeometry(), material);
@@ -63,10 +66,15 @@ display.shapes.sphere = new THREE.Mesh( new THREE.SphereBufferGeometry(0.5, 16, 
 display.shapes.cone = new THREE.Mesh(new THREE.ConeBufferGeometry(1, 1, 32), material);
 display.shapes.tetra = new THREE.Mesh(new THREE.TetrahedronBufferGeometry(1), material);
 display.shapes.doughnut = new THREE.Mesh(new THREE.TorusBufferGeometry(0.5, 0.3, 16, 32), material);
+display.shapes.sphere.castShadow = true;
 
-
-
-
+//a base plane to catch shadows
+const baseMaterial = new THREE.ShadowMaterial();
+baseMaterial.opacity = 1;
+display.base = new THREE.Mesh(new THREE.PlaneGeometry(9,9), baseMaterial);
+display.base.receiveShadow = true;
+display.base.rotation.set(degreesToRadians(-90),0,0)
+scene.add(display.base);
 
 //add light
 const ambientLight = new THREE.AmbientLight(0xFFFFFF, 0.2);
@@ -76,6 +84,7 @@ const sun = new THREE.DirectionalLight(0xFFFFFF, 5);
 sun.position.set(1, 2, 1);
 sun.target.position.set(0, 0.5, 0);
 sun.target.updateMatrixWorld();
+sun.castShadow = true;
 scene.add(sun);
 scene.add(sun.target);
 

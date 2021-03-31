@@ -46,6 +46,7 @@ function initGui () {
 	gui.light.open();
 
 		gui.light.intensity = gui.light.add(sun, 'intensity', 0, 20, 0.01);
+		gui.light.showShadow = gui.light.add(display.base, 'visible').name('shadow');
 
 	//SHADING SETTINGS
 	gui.shading = gui.addFolder('Shading');
@@ -80,6 +81,12 @@ function initGui () {
 				updateMaterial();
 				})
 			.domElement.closest('li').classList.add('subOption','toon');
+
+	//COMPLETE -- the gui has been created an initialized
+	Array.from($$('#gui input[type="checkbox"]')).forEach((e,i)=>{
+		e.id = 'checkbox-'+i;
+		e.insertAdjacentHTML('afterend', '<label for="checkbox-'+i+'"></label>');
+	});
 }
 
 function updateMaterial () {
