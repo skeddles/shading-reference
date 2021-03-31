@@ -66,5 +66,80 @@
 				"color": "#00ffff"
 			}
 		}
+	],
+	"cone": [
+		{
+			"object": {
+				"shape": "cone"
+			}
+		},
+		{
+			"object": {
+				"shape": "cone",
+				"color": "#ff0000"
+			}
+		},
+		{
+			"object": {
+				"shape": "cone",
+				"color": "#00ff00"
+			}
+		},
+		{
+			"object": {
+				"shape": "cone",
+				"color": "#00ffff"
+			}
+		}
+	],
+	"tetra": [
+		{
+			"object": {
+				"shape": "tetra"
+			}
+		},
+		{
+			"object": {
+				"shape": "tetra",
+				"color": "#ff0000"
+			}
+		},
+		{
+			"object": {
+				"shape": "tetra",
+				"color": "#00ff00"
+			}
+		},
+		{
+			"object": {
+				"shape": "tetra",
+				"color": "#00ffff"
+			}
+		}
+	],
+	"doughnut": [
+		{
+			"object": {
+				"shape": "doughnut"
+			}
+		},
+		{
+			"object": {
+				"shape": "doughnut",
+				"color": "#ff0000"
+			}
+		},
+		{
+			"object": {
+				"shape": "doughnut",
+				"color": "#00ff00"
+			}
+		},
+		{
+			"object": {
+				"shape": "doughnut",
+				"color": "#00ffff"
+			}
+		}
 	]
 }

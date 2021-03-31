@@ -3,15 +3,14 @@ const async = require('async');
 const puppeteer = require('puppeteer');
 const fileUrl = require('file-url');
 
-//load examples data
-const examples = JSON.parse(fs.readFileSync('examples.json'));
-
-
 module.exports = function (done) {
 
 	//make sure build/images/thumbnails folder exists
 	fs.mkdir("build/images", function (err) {	if (err && err.code !== "EEXIST") console.log('ERROR CREATING FOLDER',err);   });
 	fs.mkdir("build/images/thumbnails", function (err) {	if (err && err.code !== "EEXIST") console.log('ERROR CREATING FOLDER',err);   });
+
+	//load examples data
+	const examples = JSON.parse(fs.readFileSync('examples.json'));
 
 	//LOOP through shape types
 	async.eachOfLimit(examples, 1, (shapeArray, shape, finishedGeneratingShapeGroup) => {
@@ -19,15 +18,11 @@ module.exports = function (done) {
 
 			//LOOP through each preset in shape group and render it
 			async.eachOfLimit(shapeArray, 1, (shapeData, index, renderedPreset) => {
-					console.log(' ', shapeData);
 					generate(shape+'-'+(index+1), shapeData, renderedPreset);
 				},
 
 				//done rendering all shapes in shape group
-				(err) => {
-					console.log("done");
-					finishedGeneratingShapeGroup(err);
-				}
+				finishedGeneratingShapeGroup
 			);
 		},
 
@@ -50,7 +45,7 @@ async function generate (name, data, done) {
 	if (urlParameters.length < 3) urlParameters = '';
 
 
-	console.log('generating',name,'example-generator.htm'+urlParameters);
+	console.log(' ',name,urlParameters);
 
 	//load the page
 	let generatedUrl = fileUrl('./build/example-generator.htm')+urlParameters;
