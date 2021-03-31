@@ -32,11 +32,13 @@ display.cameras.perspective.lookAt(camera_pivot.position);
 
 display.cameras.perspective.rotateAround = 45;
 display.cameras.perspective.rotateUp = 45;
+
 camera_pivot.add(display.cameras.perspective);
 scene.add( camera_pivot );
 
 
-camera_pivot.rotation.z = degreesToRadians(display.cameras.perspective.rotateUp);
+
+camera_pivot.rotation.set(0,degreesToRadians(display.cameras.perspective.rotateUp),0);
 
 
 //add grid

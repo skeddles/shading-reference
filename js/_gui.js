@@ -39,6 +39,7 @@ function initGui () {
 			.onChange(() => {
 				camera_pivot.rotation.z = degreesToRadians(display.cameras.perspective.rotateUp);
 			});
+			camera_pivot.rotation.z = degreesToRadians(display.cameras.perspective.rotateUp);
 
 	//LIGHT SETTINGS
 	gui.light = gui.addFolder('Light');
