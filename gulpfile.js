@@ -17,10 +17,16 @@ var imagemin = require("gulp-imagemin");
 var through = require('through2');
 var generateThumbnails = require('./generate-thumbnails.js');
 
-//environment specific settings
-console.log('ENV:',process.env.LIVE?'live':'dev');
-var cssStyle = process.env.LIVE?'compressed':'compressed';
-var jsDropConsole = process.env.LIVE==true;
+//████████████████████████████████████████████████████████████████████████████████
+//██████████████████████████████ ENVIRONMENT █████████████████████████████████████
+//████████████████████████████████████████████████████████████████████████████████
+
+const LIVE = process.env.LIVE;
+console.log('ENV:',LIVE?'live':'dev');
+const environments = require('gulp-environments');
+const liveOnly = environments.make('live');
+environments.current(LIVE?'live':'dev');
+const cssStyle = LIVE?'compressed':'nested';
 
 //████████████████████████████████████████████████████████████████████████████████
 //████████████████████████████████ TASKS █████████████████████████████████████████
@@ -38,7 +44,7 @@ gulp.task("js", function() {
 
 		.pipe(include({includePaths: ['js']})).on('error', console.log)
 		//.pipe(sourcemaps.init())
-		.pipe(uglify({compress: {drop_console: jsDropConsole }})).on('error', console.log)
+		.pipe(liveOnly(uglify({compress: {drop_console: true }}))).on('error', console.log)
 		//.pipe(sourcemaps.write('./maps'))
 		.pipe(gulp.dest("./build/js"));
 });

@@ -14,6 +14,7 @@
 		"async": "^3.2.0",
 		"file-url": "^3.0.0",
 		"gulp": "^4.0.2",
+		"gulp-environments": "^1.0.1",
 		"gulp-hb": "^8.0.0",
 		"gulp-imagemin": "^7.1.0",
 		"gulp-include": "^2.4.1",
