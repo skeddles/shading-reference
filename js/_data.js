@@ -7,7 +7,7 @@ const display = {
 	cameras: {},
 	currentCamera: null,
 	shading: 'smooth',
-	toon = {shades: 3},
+	toon: {shades: 3},
 };
 
 var gui = {}; 
