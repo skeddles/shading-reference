@@ -1,6 +1,7 @@
 const fs = require('fs');
 const async = require('async');
 const puppeteer = require('puppeteer');
+const fileUrl = require('file-url');
 
 //load examples data
 const examples = JSON.parse(fs.readFileSync('examples.json'));
@@ -36,30 +37,6 @@ module.exports = function (done) {
 			done();
 		}
 	);
-		return
-	//loop through all shapes in examples
-	for (shape in examples) {
-		async.eachOfLimit(
-			examples[shape],
-			1,
-			(i, k, c) => {
-				console.log(">", k, i);
-				c();
-			},
-			(err) => {
-				console.log("done");
-				done();
-			}
-		);
-
-		//loop through examples in shape and generate each
-		//examples[shape].forEach((data,i) => generate(shape+'-'+(i+1), data));
-	}
-
-	console.log('finished generating examples');
-	
-	//success
-	done();
 }
 
 
@@ -76,7 +53,7 @@ async function generate (name, data, done) {
 	console.log('generating',name,'example-generator.htm'+urlParameters);
 
 	//load the page
-	let generatedUrl = 'file:///Y:/Projects/Websites/shading-reference/build/example-generator.htm'+urlParameters;
+	let generatedUrl = fileUrl('./build/example-generator.htm')+urlParameters;
 	await page.goto(generatedUrl).catch(err=>console.error('invalid url',generatedUrl));
 
 	//screenshot the page
