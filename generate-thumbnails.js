@@ -5,10 +5,12 @@ const puppeteer = require('puppeteer');
 //load examples data
 const examples = JSON.parse(fs.readFileSync('examples.json'));
 
-fs.mkdir("build/images", function (err) {	if (err && err.code !== "EEXIST") console.log('ERROR CREATING FOLDER',err);   });
-fs.mkdir("build/images/thumbnails", function (err) {	if (err && err.code !== "EEXIST") console.log('ERROR CREATING FOLDER',err);   });
 
 module.exports = function (done) {
+
+	//make sure build/images/thumbnails folder exists
+	fs.mkdir("build/images", function (err) {	if (err && err.code !== "EEXIST") console.log('ERROR CREATING FOLDER',err);   });
+	fs.mkdir("build/images/thumbnails", function (err) {	if (err && err.code !== "EEXIST") console.log('ERROR CREATING FOLDER',err);   });
 
 	//LOOP through shape types
 	async.eachOfLimit(examples, 1, (shapeArray, shape, finishedGeneratingShapeGroup) => {
