@@ -42,7 +42,11 @@ display.shapes.sphere = new THREE.Mesh( new THREE.SphereBufferGeometry(0.5, 16, 
 display.shapes.cone = new THREE.Mesh(new THREE.ConeBufferGeometry(1, 1, 32), material);
 display.shapes.tetra = new THREE.Mesh(new THREE.TetrahedronBufferGeometry(1), material);
 display.shapes.doughnut = new THREE.Mesh(new THREE.TorusBufferGeometry(0.5, 0.3, 16, 32), material);
-display.shapes.sphere.castShadow = true;
+
+for (shape in display.shapes) {
+	display.shapes[shape].castShadow = true;
+}
+
 
 //a base plane to catch shadows
 const baseMaterial = new THREE.ShadowMaterial();

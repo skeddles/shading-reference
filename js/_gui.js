@@ -19,6 +19,7 @@ function initGui () {
 				scene.add(display.currentShape);
 				display.currentShape.position.y = 0.5;
 				updateMaterial();
+				display.currentShape.geometry.computeVertexNormals();
 			});
 
 		//color
