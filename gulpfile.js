@@ -54,7 +54,7 @@ gulp.task("css", function() {
 
 //img project task - minimizes gif,png,jpg,svg files for projects - in /img
 gulp.task("image", function() {
-	return gulp.src(' images/**/*.*')
+	return gulp.src('images/**/*.*')
 		//minify
 		.pipe(imagemin())
 		//out
