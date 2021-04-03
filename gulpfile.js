@@ -37,6 +37,12 @@ gulp.task("html", function () {
 	return gulp.src('html/*.htm')
 		.pipe(gulp.dest("./build"));
 });
+
+//html task - copies html files
+gulp.task("favicon", function () {
+	return gulp.src('design/favicon.ico')
+		.pipe(gulp.dest("./build"));
+});
  
 //js task - combines and minimizes js files in /scripts directory
 gulp.task("js", function() {
@@ -81,6 +87,7 @@ gulp.task("thumbnails", function(done) {
 gulp.task('default',
 	gulp.series(
 		'html',
+		'favicon',
 		'css',
 		'image',
 		'js',
@@ -95,6 +102,9 @@ gulp.task('watch', function(){
 
     //watch scripts folder for changes in any files
     gulp.watch(['html/*.htm'], gulp.series('html'));
+
+    //watch scripts folder for changes in any files
+    gulp.watch(['design/favicon.ico'], gulp.series('favicon'));
 
     //watch scripts folder for changes in any files
     gulp.watch(['js/**/*.js*'], gulp.series('js'));
