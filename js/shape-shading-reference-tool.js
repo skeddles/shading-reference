@@ -8,6 +8,7 @@ const THUMBNAILMODE = false;
 //=include _newToonMaterial.js
 //=include _viewer.js
 //=include _popup.js
+//=include _loadExampleFromURL.js
 
 const PRESETS = 
 //=include ../examples.json
@@ -23,6 +24,8 @@ animate();
 initGui();
 
 
+//attempt to load the data from the url
+loadExampleFromURL();
 
 
 /*global THREE, dat*/

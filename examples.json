@@ -1,6 +1,22 @@
 {
 	"sphere": [
-		{},
+		{	
+			"object": {
+				"shape": "sphere",
+				"color": "#ffffff" 
+			},
+			"camera": {
+				"spin": 0,
+				"orbit": 0
+			},
+			"light": {
+				"intensity": 5,
+				"showShadow": true
+			},
+			"shading": {
+				"type": "smooth"
+			}
+		},
 		{
 			"object": {
 				"color": "#ff0000"
@@ -21,6 +37,10 @@
 		{
 			"object": {
 				"shape": "cube"
+			},
+			"camera": {
+				"spin": 45,
+				"orbit": 25
 			}
 		},
 		{

@@ -43,6 +43,7 @@ async function generate (name, data, done) {
 	//convert the data into url parameters
 	let urlParameters = generateUrlParametersFromData(data,'');
 	if (urlParameters.length < 3) urlParameters = '';
+	else urlParameters = '?' + urlParameters.substring(1); //replace first & with ?
 
 
 	console.log(' ',name,urlParameters);
@@ -71,7 +72,7 @@ function generateUrlParametersFromData(data, path)   {
         else {
 			//console.log('adding to param',urlParameters,path,path.length, k);
 			let objPath = k;
-			if (path) objPath = (urlParameters?'&':'?') +path+'.' + objPath;
+			if (path) objPath = '&' +path+'.' + objPath;
 
             urlParameters += objPath +'='+ cleanData(data[k]);
 		}
@@ -81,5 +82,7 @@ function generateUrlParametersFromData(data, path)   {
 
 //removes unnecessary stuff from data
 function cleanData (data) {
-	return data.replace('#','');
+	if (typeof data == 'string') return data.replace('#','');
+ 
+	return data;   
 }

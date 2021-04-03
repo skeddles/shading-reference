@@ -24,13 +24,23 @@ document.addEventListener('click', e=>{
 			if (typeof data[k] == "object" && data[k] !== null)
 				loadExampleData(data[k],guiObj[k],data[k]); 
 			else {
-				console.log('> setting',guiObj[k].domElement,'to',data[k]);
+
+				console.log('> setting',guiObj,k,'to'); 
+				//console.log('> setting',guiObj[k].domElement,'to',data[k]);
 				guiObj[k].setValue(data[k]);
 			}
 		}
 	} loadExampleData(data,gui,data);
 
-	//show renderer (and make sure to resize it)
-	$('body').classList.add('editorOpen');
-	renderer.setSize( container.offsetHeight, container.offsetHeight);
+	//show renderer
+	openEditor();
 });
+
+//opens the editor so the user can see it
+function openEditor () {
+	//make visible
+	$('body').classList.add('editorOpen');
+
+	//resize renderer to fit window
+	renderer.setSize( container.offsetHeight, container.offsetHeight);
+}

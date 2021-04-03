@@ -50,7 +50,7 @@ for (shape in display.shapes) {
 
 //a base plane to catch shadows
 const baseMaterial = new THREE.ShadowMaterial();
-baseMaterial.opacity = 1;
+baseMaterial.opacity = 0.5;
 display.base = new THREE.Mesh(new THREE.PlaneGeometry(9,9), baseMaterial);
 display.base.receiveShadow = true;
 display.base.rotation.set(degreesToRadians(-90),0,0)
@@ -63,7 +63,7 @@ const ambientLight = new THREE.AmbientLight(0xFFFFFF, 0.2);
 scene.add(ambientLight);
 
 const sun = new THREE.DirectionalLight(0xFFFFFF, 5);
-sun.position.set(1, 2, 1);
+sun.position.set(1, 2, -1);
 sun.target.position.set(0, 0.5, 0);
 sun.target.updateMatrixWorld();
 sun.castShadow = true;
