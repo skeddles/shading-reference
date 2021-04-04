@@ -5,6 +5,7 @@ const display = {
 	selectedShape: null,
 	shapes: {}, 
 	cameras: {},
+	lights: {},
 	currentCamera: null,
 	shading: 'smooth',
 	toon: {shades: 3},

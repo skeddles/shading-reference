@@ -19,11 +19,9 @@ function initGui () {
 				scene.add(display.currentShape);
 				display.currentShape.position.y = 0.5;
 				updateMaterial();
-				display.currentShape.geometry.computeVertexNormals();
+				//display.currentShape.geometry.computeVertexNormals(); // i forget why this was necessary
 			});
 
-		//color
-		gui.object.color = gui.object.addColor(new ColorGUIHelper(sun, 'color'), 'value').name('color');
 
 	//CAMERA
 	gui.camera = gui.addFolder('Camera');
@@ -46,8 +44,26 @@ function initGui () {
 	gui.light = gui.addFolder('Light');
 	gui.light.open();
 
-		gui.light.intensity = gui.light.add(sun, 'intensity', 0, 20, 0.01);
+		gui.light.intensity = gui.light.add(display.lights.main, 'intensity', 0, 20, 0.01);
+
+		//color
+		gui.light.color = gui.light.addColor(new ColorGUIHelper(display.lights.main, 'color'), 'value').name('color');
+
 		gui.light.showShadow = gui.light.add(display.base, 'visible').name('shadow');
+
+		
+		gui.light.spin = gui.light.add(display.lights.main, 'rotateAround', 0, 360, 1)
+			.name('spin')
+			.onChange(() => {
+				display.lights.main.pivotpoint.rotation.y = degreesToRadians(display.lights.main.rotateAround);
+			});
+
+		gui.light.orbit = gui.light.add(display.lights.main, 'rotateUp', 0, 360, 1)
+			.name('orbit')
+			.onChange(() => {
+				display.lights.main.pivotpoint.rotation.z = degreesToRadians(display.lights.main.rotateUp);
+			});
+			display.lights.main.pivotpoint.rotation.z = degreesToRadians(display.lights.main.rotateUp);
 
 	//SHADING SETTINGS
 	gui.shading = gui.addFolder('Shading');
@@ -56,7 +72,7 @@ function initGui () {
 		//shading type
 		gui.shading.type = gui.shading.add(display, 'shading', ['smooth','toon'])
 			.onChange(() => {
-				console.log('changine to',display.shading)
+				console.log('changing shape to',display.shading)
 				switch (display.shading) {
 					case 'toon':
 						material = newToonMaterial(3);

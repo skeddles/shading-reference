@@ -59,22 +59,28 @@ scene.add(display.base);
 
 
 //add light
-const ambientLight = new THREE.AmbientLight(0xFFFFFF, 0.2);
-scene.add(ambientLight);
 
-const sun = new THREE.DirectionalLight(0xFFFFFF, 5);
-sun.position.set(1, 2, -1);
-sun.target.position.set(0, 0.5, 0);
-sun.target.updateMatrixWorld();
-sun.castShadow = true;
-scene.add(sun);
-scene.add(sun.target);
+display.lights.main = new THREE.DirectionalLight(0xFFFFFF, 5);
+display.lights.main.pivotpoint = new THREE.Object3D();
+display.lights.main.pivotpoint.position.set(0, 0.5, 0);
+display.lights.main.position.set(0, -2, 0);
+display.lights.main.target.position.set(0, 0.5, 0);
+display.lights.main.target.updateMatrixWorld();
+display.lights.main.castShadow = true;
+display.lights.main.rotateAround = 0;
+display.lights.main.rotateUp = 0;
+scene.add(display.lights.main.pivotpoint);
+display.lights.main.pivotpoint.add(display.lights.main);
 
 
-const helper = new THREE.DirectionalLightHelper(sun, 0.1);
+//add light direction indicator
+const helper = new THREE.DirectionalLightHelper(display.lights.main, 0.1);
 if (THUMBNAILMODE) helper.visible = false;
 scene.add(helper);
 
+//add ambient light
+display.lights.ambient = new THREE.AmbientLight(0xFFFFFF, 0.2);
+scene.add(display.lights.ambient);
 
 //set defaults
 display.selectedCamera = display.cameras.perspective;

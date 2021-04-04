@@ -2,8 +2,7 @@
 	"sphere": [
 		{	
 			"object": {
-				"shape": "sphere",
-				"color": "#ffffff" 
+				"shape": "sphere"
 			},
 			"camera": {
 				"spin": 0,
@@ -11,24 +10,27 @@
 			},
 			"light": {
 				"intensity": 5,
-				"showShadow": true
+				"color": "#ffffff",
+				"showShadow": true,
+				"spin": 45,
+				"orbit": 135
 			},
 			"shading": {
 				"type": "smooth"
 			}
 		},
 		{
-			"object": {
+			"light": {
 				"color": "#ff0000"
 			}
 		},
 		{
-			"object": {
+			"light": {
 				"color": "#00ff00"
 			}
 		},
 		{
-			"object": {
+			"light": {
 				"color": "#0000ff"
 			}
 		}
@@ -41,23 +43,33 @@
 			"camera": {
 				"spin": 45,
 				"orbit": 25
+			},
+			"light": {
+				"spin": 68,
+				"orbit": 158
 			}
 		},
 		{
 			"object": {
-				"shape": "cube",
+				"shape": "cube"
+			},
+			"light": {
 				"color": "#ff0000"
 			}
 		},
 		{
 			"object": {
-				"shape": "cube",
+				"shape": "cube"
+			},
+			"light": {
 				"color": "#00ff00"
 			}
 		},
 		{	
 			"object": {
-				"shape": "cube",
+				"shape": "cube"
+			},
+			"light": {
 				"color": "#0000ff"
 			}
 		}
@@ -66,24 +78,38 @@
 		{
 			"object": {
 				"shape": "cylinder"
+			},
+			"camera": {
+				"spin": 0,
+				"orbit": 22
+			},
+			"light": {
+				"spin": 45,
+				"orbit": 135
 			}
 		},
 		{
 			"object": {
-				"shape": "cylinder",
+				"shape": "cylinder"
+			},
+			"light": {
 				"color": "#ff0000"
 			}
 		},
 		{
 			"object": {
-				"shape": "cylinder",
+				"shape": "cylinder"
+			},
+			"light": {
 				"color": "#00ff00"
 			}
 		},
-		{
+		{	
 			"object": {
-				"shape": "cylinder",
-				"color": "#00ffff"
+				"shape": "cylinder"
+			},
+			"light": {
+				"color": "#0000ff"
 			}
 		}
 	],
@@ -91,24 +117,38 @@
 		{
 			"object": {
 				"shape": "cone"
+			},
+			"camera": {
+				"spin": 0,
+				"orbit": 0
+			},
+			"light": {
+				"spin": 45,
+				"orbit": 135
 			}
 		},
 		{
 			"object": {
-				"shape": "cone",
+				"shape": "cone"
+			},
+			"light": {
 				"color": "#ff0000"
 			}
 		},
 		{
 			"object": {
-				"shape": "cone",
+				"shape": "cone"
+			},
+			"light": {
 				"color": "#00ff00"
 			}
 		},
-		{
+		{	
 			"object": {
-				"shape": "cone",
-				"color": "#00ffff"
+				"shape": "cone"
+			},
+			"light": {
+				"color": "#0000ff"
 			}
 		}
 	],
@@ -116,24 +156,38 @@
 		{
 			"object": {
 				"shape": "tetra"
+			},
+			"camera": {
+				"spin": 0,
+				"orbit": 0
+			},
+			"light": {
+				"spin": 45,
+				"orbit": 135
 			}
 		},
 		{
 			"object": {
-				"shape": "tetra",
+				"shape": "tetra"
+			},
+			"light": {
 				"color": "#ff0000"
 			}
 		},
 		{
 			"object": {
-				"shape": "tetra",
+				"shape": "tetra"
+			},
+			"light": {
 				"color": "#00ff00"
 			}
 		},
-		{
+		{	
 			"object": {
-				"shape": "tetra",
-				"color": "#00ffff"
+				"shape": "tetra"
+			},
+			"light": {
+				"color": "#0000ff"
 			}
 		}
 	],
@@ -141,24 +195,38 @@
 		{
 			"object": {
 				"shape": "doughnut"
+			},
+			"camera": {
+				"spin": 0,
+				"orbit": 0
+			},
+			"light": {
+				"spin": 45,
+				"orbit": 135
 			}
 		},
 		{
 			"object": {
-				"shape": "doughnut",
+				"shape": "doughnut"
+			},
+			"light": {
 				"color": "#ff0000"
 			}
 		},
 		{
 			"object": {
-				"shape": "doughnut",
+				"shape": "doughnut"
+			},
+			"light": {
 				"color": "#00ff00"
 			}
 		},
-		{
+		{	
 			"object": {
-				"shape": "doughnut",
-				"color": "#00ffff"
+				"shape": "doughnut"
+			},
+			"light": {
+				"color": "#0000ff"
 			}
 		}
 	]

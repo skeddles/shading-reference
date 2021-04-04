@@ -24,9 +24,7 @@ document.addEventListener('click', e=>{
 			if (typeof data[k] == "object" && data[k] !== null)
 				loadExampleData(data[k],guiObj[k],data[k]); 
 			else {
-
-				console.log('> setting',guiObj,k,'to'); 
-				//console.log('> setting',guiObj[k].domElement,'to',data[k]);
+				console.log('> setting',k,'to',data[k]); 
 				guiObj[k].setValue(data[k]);
 			}
 		}
