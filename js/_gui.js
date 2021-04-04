@@ -21,7 +21,14 @@ function initGui () {
 				updateMaterial();
 				//display.currentShape.geometry.computeVertexNormals(); // i forget why this was necessary
 			});
-
+		
+		//roughness
+		gui.object.roughness = gui.object.add(material, 'roughness', 0, 1, 0.01)
+			.onChange(() => {
+				updateMaterial();
+				console.log('changed roughness',material.roughness);
+			});
+		gui.object.color = gui.object.addColor(new ColorGUIHelper(material, 'color'), 'value').name('color');
 
 	//CAMERA
 	gui.camera = gui.addFolder('Camera');
@@ -81,7 +88,7 @@ function initGui () {
 						break;
 						
 					case 'smooth': 
-						material = new THREE.MeshPhongMaterial({color: 0x726672});
+						material = new THREE.MeshStandardMaterial({color: 0x726672, roughness: 0.8});
 
 						//display.gui.toonShadingOptions.forEach(o=>{console.log('w',o)});
 						gui.domElement.classList.remove('showToonOptions');
