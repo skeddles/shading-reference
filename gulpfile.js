@@ -38,10 +38,16 @@ gulp.task("html", function () {
 		.pipe(gulp.dest("./build"));
 });
 
-//html task - copies html files
+//favicon task - copies favicon file
 gulp.task("favicon", function () {
 	return gulp.src('design/favicon.ico')
 		.pipe(gulp.dest("./build"));
+});
+
+//models task - copies model files
+gulp.task("models", function () {
+	return gulp.src('models/*.glb')
+		.pipe(gulp.dest("./build/models"));
 });
  
 //js task - combines and minimizes js files in /scripts directory
@@ -88,6 +94,7 @@ gulp.task('default',
 	gulp.series(
 		'html',
 		'favicon',
+		'models',
 		'css',
 		'image',
 		'js',
@@ -107,6 +114,9 @@ gulp.task('watch', function(){
     gulp.watch(['design/favicon.ico'], gulp.series('favicon'));
 
     //watch scripts folder for changes in any files
+    gulp.watch(['models/*.glb'], gulp.series('models'));
+
+    //watch scripts folder for changes in any files
     gulp.watch(['js/**/*.js*'], gulp.series('js'));
 
     //watch sass folder for changes in any files 
@@ -116,7 +126,7 @@ gulp.task('watch', function(){
     gulp.watch(['images/**/*.*'], gulp.series('image'));
 
     //watch example file for changes
-    gulp.watch(['examples.json'], gulp.series('thumbnails','js'));
+    gulp.watch(['examples.json'], gulp.series('js','thumbnails'));
 
 });
 

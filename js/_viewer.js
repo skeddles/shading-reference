@@ -1,3 +1,4 @@
+const gltfLoader = new THREE.GLTFLoader();
 const container = $('#threes-container'); // I know your IDE says there's an error here, it's just because of the included presets line above. ignore it.
 
 //create scene
@@ -32,7 +33,7 @@ if (THUMBNAILMODE) renderer.setSize( 512, 512); //if in thumbnail mode, use stat
 container.appendChild( renderer.domElement );
 
 //generic material
-var material = new THREE.MeshPhongMaterial({color: 0x726672});
+var material = new THREE.MeshStandardMaterial({color: 0x726672, roughness: 0});
 //material.shininess = 150;
 
 //create shapes
@@ -42,6 +43,22 @@ display.shapes.sphere = new THREE.Mesh( new THREE.SphereBufferGeometry(0.5, 16, 
 display.shapes.cone = new THREE.Mesh(new THREE.ConeBufferGeometry(1, 1, 32), material);
 display.shapes.tetra = new THREE.Mesh(new THREE.TetrahedronBufferGeometry(1), material);
 display.shapes.doughnut = new THREE.Mesh(new THREE.TorusBufferGeometry(0.5, 0.3, 16, 32), material);
+
+gltfLoader.load( 'models/cube.glb', function ( gltf ) {
+
+	const loadedShape = gltf.scene.children[0]
+
+	//scene.add(loadedShape);
+	console.log('cub',loadedShape)
+
+	loadedShape.material.roughness = 0.9;
+
+	//gltf.scene.children[0].material.color.setHex(0xff0000);
+}, undefined, function ( error ) {
+
+	console.error( error );
+
+} );
 
 for (shape in display.shapes) {
 	display.shapes[shape].castShadow = true;
