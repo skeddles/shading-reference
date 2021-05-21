@@ -51,19 +51,11 @@ async function generate (name, data, done) {
 	//load the page
 	let generatedUrl = fileUrl('./build/example-generator.htm')+urlParameters;
 
-	page
-    .on('console', message =>
-      console.log(`${message.type().substr(0, 3).toUpperCase()} ${message.text()}`))
-    .on('pageerror', ({ message }) => console.log(message))
-    .on('response', response =>
-      console.log(`${response.status()} ${response.url()}`))
-    .on('requestfailed', request =>
-      console.log(`${request.failure().errorText} ${request.url()}`))
-
 	await page.goto(generatedUrl).catch(err=>console.error('invalid url',generatedUrl));
 
 	//await page.waitForTimeout(5000);
-
+	await page.waitForFunction('window.exampleLoaded === true');
+	
 	//screenshot the page
 	await page.screenshot({
 		path: 'build/images/thumbnails/'+name+'.png',

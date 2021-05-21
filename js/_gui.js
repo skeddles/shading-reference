@@ -133,7 +133,6 @@ function updateShape (newShape) {
 	updateMaterial();
 
 	window.exampleLoaded = true;
-	document.body.insertAdjacentHTML('beforeend','<div id="complete"></div>')
 }
 
 function updateMaterial () {
