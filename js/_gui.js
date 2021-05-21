@@ -21,7 +21,9 @@ function initGui () {
 				console.log('changing shape',display.selectedShape, display.shapes.hasOwnProperty(display.selectedShape))
 
 				//load new model
-				if (!display.shapes.hasOwnProperty(display.selectedShape))
+				if (!display.shapes.hasOwnProperty(display.selectedShape)) {
+					$('#loading-model').classList.add('visible');
+
 					gltfLoader.load('models/'+display.selectedShape+'.glb', function ( gltf ) {
 						
 						//save shape, then proceed to update it
@@ -29,12 +31,14 @@ function initGui () {
 						loadedShape.castShadow = true;
 						display.shapes[display.selectedShape] = loadedShape;
 						updateShape(loadedShape);
+						
+						$('#loading-model').classList.remove('visible');
 
 						console.log('loaded model',loadedShape);
 
 					}, undefined, error => console.error);
 				//model already loaded
-				else updateShape(display.shapes[display.selectedShape]);
+				} else updateShape(display.shapes[display.selectedShape]);
 			});
 		
 		//roughness

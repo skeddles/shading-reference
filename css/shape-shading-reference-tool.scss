@@ -82,6 +82,20 @@ section.wrapper {
 
 }
 	
+#loading-model {
+	position: absolute;
+	width: calc(100% - 2em - 245px);
+	font-weight: bold;
+	box-sizing: border-box;
+	text-align: center;
+	font-size: 2em;
+	top: calc(50% - 1em);
+	display: none;
+
+	&.visible {
+		display: block;
+	}
+}
 	
 //hide editor window by default (when body doesn't have .editorOpen 
 body:not(.editorOpen) #threes-container {display: none;}
