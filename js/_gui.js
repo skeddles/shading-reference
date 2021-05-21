@@ -6,6 +6,7 @@ function initGui () {
 	gui.domElement.id = 'gui';
 	$('#threes-container').appendChild(gui.domElement);
 
+
 	//OBJECT SETTINGS
 	gui.object = gui.addFolder('Object');
 	gui.object.open();
