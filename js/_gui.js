@@ -11,15 +11,29 @@ function initGui () {
 	gui.object.open();
 
 		//shape dropdown
-		gui.object.shape = gui.object.add(display, 'selectedShape', Object.keys(display.shapes))
+		gui.object.shape = gui.object.add(display, 'selectedShape', Object.keys(PRESETS))
 			.name('shape')
 			.onChange(() => {
+				//remove current
 				scene.remove(display.currentShape);
-				display.currentShape = display.shapes[display.selectedShape];
-				scene.add(display.currentShape);
-				display.currentShape.position.y = 0.5;
-				updateMaterial();
-				//display.currentShape.geometry.computeVertexNormals(); // i forget why this was necessary
+				
+				console.log('changing shape',display.selectedShape, display.shapes.hasOwnProperty(display.selectedShape))
+
+				//load new model
+				if (!display.shapes.hasOwnProperty(display.selectedShape))
+					gltfLoader.load('models/'+display.selectedShape+'.glb', function ( gltf ) {
+						
+						//save shape, then proceed to update it
+						const loadedShape = gltf.scene.children[0];
+						loadedShape.castShadow = true;
+						display.shapes[display.selectedShape] = loadedShape;
+						updateShape(loadedShape);
+
+						console.log('loaded model',loadedShape);
+
+					}, undefined, error => console.error);
+				//model already loaded
+				else updateShape(display.shapes[display.selectedShape]);
 			});
 		
 		//roughness
@@ -82,13 +96,13 @@ function initGui () {
 				console.log('changing shape to',display.shading)
 				switch (display.shading) {
 					case 'toon':
-						material = newToonMaterial(3);
+						display.currentShape.material = newToonMaterial(3);
 						gui.domElement.classList.add('showToonOptions');
 						
 						break;
 						
 					case 'smooth': 
-						material = new THREE.MeshStandardMaterial({color: 0x726672, roughness: 0.8});
+						display.currentShape.material = new THREE.MeshStandardMaterial({color: 0x726672, roughness: 0.8});
 
 						//display.gui.toonShadingOptions.forEach(o=>{console.log('w',o)});
 						gui.domElement.classList.remove('showToonOptions');
@@ -111,6 +125,15 @@ function initGui () {
 		e.id = 'checkbox-'+i;
 		e.insertAdjacentHTML('afterend', '<label for="checkbox-'+i+'"></label>');
 	});
+}
+
+function updateShape (newShape) {
+	display.currentShape = newShape;
+	scene.add(display.currentShape);
+	updateMaterial();
+
+	window.exampleLoaded = true;
+	document.body.insertAdjacentHTML('beforeend','<div id="complete"></div>')
 }
 
 function updateMaterial () {

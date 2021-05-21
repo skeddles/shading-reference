@@ -50,7 +50,11 @@ async function generate (name, data, done) {
 
 	//load the page
 	let generatedUrl = fileUrl('./build/example-generator.htm')+urlParameters;
+
+
 	await page.goto(generatedUrl).catch(err=>console.error('invalid url',generatedUrl));
+
+	await page.waitForTimeout(5000);
 
 	//screenshot the page
 	await page.screenshot({

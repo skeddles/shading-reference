@@ -1,5 +1,5 @@
 const gltfLoader = new THREE.GLTFLoader();
-const container = $('#threes-container'); // I know your IDE says there's an error here, it's just because of the included presets line above. ignore it.
+const container = $('#threes-container'); 
 
 //create scene
 const scene = new THREE.Scene();
@@ -37,6 +37,7 @@ var material = new THREE.MeshStandardMaterial({color: 0x726672, roughness: 0});
 //material.shininess = 150;
 
 //create shapes
+/*
 display.shapes.cube = new THREE.Mesh(new THREE.BoxGeometry(), material);
 display.shapes.cylinder = new THREE.Mesh( new THREE.CylinderBufferGeometry(1, 1, 1, 32), material);
 display.shapes.sphere = new THREE.Mesh( new THREE.SphereBufferGeometry(0.5, 16, 16), material);
@@ -44,25 +45,9 @@ display.shapes.cone = new THREE.Mesh(new THREE.ConeBufferGeometry(1, 1, 32), mat
 display.shapes.tetra = new THREE.Mesh(new THREE.TetrahedronBufferGeometry(1), material);
 display.shapes.doughnut = new THREE.Mesh(new THREE.TorusBufferGeometry(0.5, 0.3, 16, 32), material);
 
-gltfLoader.load( 'models/cube.glb', function ( gltf ) {
-
-	const loadedShape = gltf.scene.children[0]
-
-	//scene.add(loadedShape);
-	console.log('cub',loadedShape)
-
-	loadedShape.material.roughness = 0.9;
-
-	//gltf.scene.children[0].material.color.setHex(0xff0000);
-}, undefined, function ( error ) {
-
-	console.error( error );
-
-} );
-
 for (shape in display.shapes) {
 	display.shapes[shape].castShadow = true;
-}
+}*/
 
 
 //a base plane to catch shadows
@@ -74,6 +59,7 @@ display.base.rotation.set(degreesToRadians(-90),0,0)
 if (THUMBNAILMODE) display.base.visible = false;
 scene.add(display.base);
 
+display.currentShape = new THREE.Object3D();
 
 //add light
 
@@ -101,7 +87,7 @@ scene.add(display.lights.ambient);
 
 //set defaults
 display.selectedCamera = display.cameras.perspective;
-display.selectedShape = 'sphere';
-display.currentShape = display.shapes[display.selectedShape];
-display.currentShape.position.y = 0.5;
-scene.add(display.currentShape);
+//display.selectedShape = 'sphere';
+//display.currentShape = display.shapes[display.selectedShape];
+//display.currentShape.position.y = 0.5;
+//scene.add(display.currentShape);

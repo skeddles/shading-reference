@@ -152,10 +152,10 @@
 			}
 		}
 	],
-	"tetra": [
+	"suzanne": [
 		{
 			"object": {
-				"shape": "tetra"
+				"shape": "suzanne"
 			},
 			"camera": {
 				"spin": 0,
@@ -168,7 +168,7 @@
 		},
 		{
 			"object": {
-				"shape": "tetra"
+				"shape": "suzanne"
 			},
 			"light": {
 				"color": "#ff0000"
@@ -176,7 +176,46 @@
 		},
 		{
 			"object": {
-				"shape": "tetra"
+				"shape": "suzanne"
+			},
+			"light": {
+				"color": "#00ff00"
+			} 
+		},
+		{	
+			"object": {
+				"shape": "suzanne"
+			},
+			"light": {
+				"color": "#0000ff"
+			}
+		}
+	],
+	"ramp": [
+		{
+			"object": {
+				"shape": "ramp"
+			},
+			"camera": {
+				"spin": 0,
+				"orbit": 0
+			},
+			"light": {
+				"spin": 45,
+				"orbit": 135
+			}
+		},
+		{
+			"object": {
+				"shape": "ramp"
+			},
+			"light": {
+				"color": "#ff0000"
+			}
+		},
+		{
+			"object": {
+				"shape": "ramp"
 			},
 			"light": {
 				"color": "#00ff00"
@@ -184,7 +223,46 @@
 		},
 		{	
 			"object": {
-				"shape": "tetra"
+				"shape": "ramp"
+			},
+			"light": {
+				"color": "#0000ff"
+			}
+		}
+	],
+	"pyramid": [
+		{
+			"object": {
+				"shape": "pyramid"
+			},
+			"camera": {
+				"spin": 0,
+				"orbit": 0
+			},
+			"light": {
+				"spin": 45,
+				"orbit": 135
+			}
+		},
+		{
+			"object": {
+				"shape": "pyramid"
+			},
+			"light": {
+				"color": "#ff0000"
+			}
+		},
+		{
+			"object": {
+				"shape": "pyramid"
+			},
+			"light": {
+				"color": "#00ff00"
+			}
+		},
+		{	
+			"object": {
+				"shape": "pyramid"
 			},
 			"light": {
 				"color": "#0000ff"

@@ -60,6 +60,8 @@ function loadExampleFromURL () {
 	//show the editor (if on the live site and not the example generator, where this function doesn't exist)
 	if (typeof openEditor == 'function')
 		openEditor(); 
+
+		
 }
 
 //load the initial preset for this shape

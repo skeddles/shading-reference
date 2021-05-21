@@ -11,8 +11,12 @@ const THUMBNAILMODE = true;
 
 //=include _loadExampleFromURL.js
 
+
+
 const PRESETS = 
 //=include ../examples.json
+
+
 
 //start render loop
 function animate() {
@@ -21,11 +25,17 @@ function animate() {
 }
 animate();
 
+
+
 //load the gui (then hide it by default)
 initGui();
 $('#gui').style.display = 'none';
 
+
+
 //attempt to load the data from the url
 loadExampleFromURL();
+
+
 
 /*global THREE*/ 
