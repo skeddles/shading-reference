@@ -18,7 +18,12 @@ module.exports = function (done) {
 
 			//LOOP through each preset in shape group and render it
 			async.eachOfLimit(shapeArray, 1, (shapeData, index, renderedPreset) => {
-					generate(shape+'-'+(index+1), shapeData, renderedPreset);
+					//add object.shape specification if not added
+					if (!shapeData.object) shapeData.object = {};
+					shapeData.object.shape = shape;
+
+					//generate the thumbnail
+					generateThumbnail(shape+'-'+(index+1), shapeData, renderedPreset);
 				},
 
 				//done rendering all shapes in shape group
@@ -35,7 +40,7 @@ module.exports = function (done) {
 }
 
 
-async function generate (name, data, done) {
+async function generateThumbnail (name, data, done) {
 	const browser = await puppeteer.launch({args: ['--disable-web-security']});
 	const page = await browser.newPage();
 	await page.setViewport({ width: 512, height: 512 });
@@ -53,9 +58,9 @@ async function generate (name, data, done) {
 
 	await page.goto(generatedUrl).catch(err=>console.error('invalid url',generatedUrl));
 
-	//await page.waitForTimeout(5000);
+	//wait until the example is fully loaded
 	await page.waitForFunction('window.exampleLoaded === true');
-	
+
 	//screenshot the page
 	await page.screenshot({
 		path: 'build/images/thumbnails/'+name+'.png',

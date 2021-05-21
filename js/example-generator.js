@@ -12,11 +12,9 @@ const THUMBNAILMODE = true;
 //=include _loadExampleFromURL.js
 
 
-
+ 
 const PRESETS = 
-//=include ../examples.json
-
-
+//=include ../examples.json 
 
 //start render loop
 function animate() {

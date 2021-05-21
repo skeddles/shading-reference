@@ -2,7 +2,8 @@
 	"sphere": [
 		{	
 			"object": {
-				"shape": "sphere"
+				"shape": "sphere",
+				"roughness": 0.5 
 			},
 			"camera": {
 				"spin": 0,
@@ -50,25 +51,16 @@
 			}
 		},
 		{
-			"object": {
-				"shape": "cube"
-			},
 			"light": {
 				"color": "#ff0000"
 			}
 		},
 		{
-			"object": {
-				"shape": "cube"
-			},
 			"light": {
 				"color": "#00ff00"
 			}
 		},
 		{	
-			"object": {
-				"shape": "cube"
-			},
 			"light": {
 				"color": "#0000ff"
 			}

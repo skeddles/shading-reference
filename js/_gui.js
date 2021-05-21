@@ -15,10 +15,13 @@ function initGui () {
 		gui.object.shape = gui.object.add(display, 'selectedShape', Object.keys(PRESETS))
 			.name('shape')
 			.onChange(() => {
+
+				//exit if selected shape is already current shape
+				if (display.selectedShape === display.lastSelectedShape) return;
+				display.lastSelectedShape = display.selectedShape;
+
 				//remove current
 				scene.remove(display.currentShape);
-				
-				console.log('changing shape',display.selectedShape, display.shapes.hasOwnProperty(display.selectedShape))
 
 				//load new model
 				if (!display.shapes.hasOwnProperty(display.selectedShape)) {
@@ -30,6 +33,7 @@ function initGui () {
 						const loadedShape = gltf.scene.children[0];
 						loadedShape.castShadow = true;
 						display.shapes[display.selectedShape] = loadedShape;
+						loadedShape.name = display.selectedShape;
 						updateShape(loadedShape);
 						
 						$('#loading-model').classList.remove('visible');
@@ -133,8 +137,9 @@ function initGui () {
 }
 
 function updateShape (newShape) {
+	let addedShape = scene.add(newShape);
+
 	display.currentShape = newShape;
-	scene.add(display.currentShape);
 	updateMaterial();
 
 	window.exampleLoaded = true;

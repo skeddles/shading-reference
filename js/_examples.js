@@ -22,16 +22,8 @@ console.log(PRESETS[c])
 	for (var i = 0; i < PRESETS[c].length; i++) {
 
 		let example = document.createElement('div');
+		exampleholder.innerHTML += '<img class="preset" data-shape="'+c+'" data-id="'+i+'" src="/images/thumbnails/'+c+'-'+(i+1)+'.png" />';
 		exampleholder.appendChild(example);
-
-		let presetData = PRESETS[c][i];
-		
-
-		let formattedPresetData = JSON.stringify(presetData)
-
-		console.log(i, c, presetData, formattedPresetData)
-
-		exampleholder.innerHTML += '<img class="preset" data-preset=\''+formattedPresetData+'\' src="/images/thumbnails/'+c+'-'+(i+1)+'.png" />';
 
 	} 
 });

@@ -11,15 +11,8 @@ document.addEventListener('click', e=>{
 		return;
 	};
 
-	console.log(e.target, e.target.dataset.preset)
-	let data = JSON.parse(e.target.dataset.preset);
-
-	console.log('preset',data)
-	//loop through preset data values and apply them to model
-	/*for (const [key, value] of Object.entries(data)) {
-		console.log(`${key}: ${value}`);
-	}*/
-	function loadExampleData(data,guiObj,data)	{
+	function loadExampleData(data,guiObj)	{
+		console.log('loopidoo')
 		for (var k in data) {
 			if (typeof data[k] == "object" && data[k] !== null)
 				loadExampleData(data[k],guiObj[k],data[k]); 
@@ -28,8 +21,20 @@ document.addEventListener('click', e=>{
 				guiObj[k].setValue(data[k]);
 			}
 		}
-	} loadExampleData(data,gui,data);
+	} 
+	
+	//create data object by combining first preset > first preset of same shape > specified shape preset 
+	let data = {};
+	deepMergeObjects(data, PRESETS['sphere'][0]);
+	deepMergeObjects(data, PRESETS[e.target.dataset.shape][0]);
+	deepMergeObjects(data, PRESETS[e.target.dataset.shape][e.target.dataset.id]);
 
+	console.log('loading data', data)
+
+	loadExampleData(data,gui);
+
+
+	console.log('done')
 	//show renderer
 	openEditor();
 });
