@@ -31,3 +31,18 @@ This is a static site which automatically gets rebuilt and distributed via netli
 Thumbnails are generated once when built then stored. This is done using puppetteer, which opens example-generator.htm, and passes the settings via the URL. 
 
 Models stored as `.glb` files, exported from blender.
+
+
+### Adding Models
+
+1. Open the .blend file in the `/models` folder
+2. Import your object
+3. Hide all objects aside from the bounding box
+4. Resize the object so it fits well within the bounding box (some outside is okay)
+5. If the object has sharp edges, manually add some slight bevel to them. 
+6. Make sure the object is selected in the scene collection
+7. File > Export > glTF
+8. Set the format to `glTF binary (.glb)`
+9. Under include, make sure `selected objects` is selected
+10. Export the model 
+11. Add an entry for the model in the `examples.json` file
