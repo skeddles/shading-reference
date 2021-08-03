@@ -23,13 +23,25 @@ document.addEventListener('click', e=>{
 		}
 	} 
 	
+
+
+	console.log('loading data', 1,PRESETS['sphere'][0])
+	console.log('loading data', 2,PRESETS[e.target.dataset.shape][0])
+	console.log('loading data', 3,PRESETS[e.target.dataset.shape][e.target.dataset.id])
+
 	//create data object by combining first preset > first preset of same shape > specified shape preset 
 	let data = {};
-	deepMergeObjects(data, PRESETS['sphere'][0]);
-	deepMergeObjects(data, PRESETS[e.target.dataset.shape][0]);
-	deepMergeObjects(data, PRESETS[e.target.dataset.shape][e.target.dataset.id]);
+	console.log(1)
+	data = deepMergeObjects(data, PRESETS['sphere'][0]);
+	console.log(2)
+	data = deepMergeObjects(data, PRESETS[e.target.dataset.shape][0]);
+	console.log(3)
+	data = deepMergeObjects(data, PRESETS[e.target.dataset.shape][e.target.dataset.id]);
+	console.log(4)
 
-	console.log('loading data', data)
+	//TODO deep merge is mutating the PRESETS object, naughty naughty
+
+	console.log('loading data', 4,data)
 
 	loadExampleData(data,gui);
 

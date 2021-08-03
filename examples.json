@@ -3,11 +3,12 @@
 		{	
 			"object": {
 				"shape": "sphere",
-				"roughness": 0.5 
+				"roughness": 0.5,
+				"color": "#726672"
 			},
 			"camera": {
-				"spin": 0,
-				"orbit": 0
+				"spin": 0,  
+				"orbit": 0 
 			},
 			"light": {
 				"intensity": 5,
