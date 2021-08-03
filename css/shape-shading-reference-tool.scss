@@ -81,6 +81,14 @@ section.wrapper {
 
 	p {
 		max-width: 700px;
+		margin: 1em auto;
+
+		&.begin {
+			text-align: center;
+			font-style: italic;
+			font-size: 1.2em;
+			color: lighten($bg, 30%);
+		}
 	}
 	
 	&>h1 {
@@ -93,6 +101,7 @@ section.wrapper {
 		cursor: default;
 		pointer-events: none;
 		margin-left: -1em;
+		justify-content: center;
 
 		img {margin-right: 0.25em;}
 		span {color: $brand2; padding-left: 0.25em}
@@ -102,10 +111,26 @@ section.wrapper {
 		text-transform: capitalize;
 	}
 
+	.examples {
+		margin-top: 3em;
+
+		& > div {
+			text-align: center;
+		}
+		h2 {
+			text-align: center;
+			border-bottom: solid 0.125em darken($bg, 2%);
+			margin:  0.5em auto;
+			display: inline-block;
+			padding: 0 2em 0.25em;
+		}
+	}
+
 	.example-holder {
 		display: flex;
 		overflow: hidden;
 		width: 100%;
+		justify-content: center;
 
 		img {
 			width: 256px;
