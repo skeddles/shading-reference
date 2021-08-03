@@ -11,18 +11,40 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r126/three.min.js" integrity="sha512-n8IpKWzDnBOcBhRlHirMZOUvEq2bLRMuJGjuVqbzUJwtTsgwOgK5aS0c1JA647XWYfqvXve8k3PtZdzpipFjgg==" crossorigin="anonymous"></script>
 	<script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.7/dat.gui.min.js" integrity="sha512-LF8ZB1iTwi4Qvkm4pekHG4a437Y9Af5ZuwbnW4GTbAWQeR2E4KW8WF+xH8b9psevV7wIlDMx1MH9YfPqgKhA/Q==" crossorigin="anonymous"></script>
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
 </head> 
 <body>
 
 	<section class="wrapper">
-		<h1>Shading Reference</h1>
+		<h1><img src="/images/logomark.svg" /> Shading <span> Reference</span></h1>
 
 		<p>This tool generates basic shapes in your browser so you can study and reference them for art. You can adjust the angle, lighting, colors, and more. There is even a cartoon shading (cel-shading) mode!</p>
 		<p>Choose one of the presets below to begin!</p>
 		<div class="examples"></div>
 	
 		<div id="threes-container"><div id="loading-model">Loading Model</div></div>
+
+
 	</section>
+
+	<footer>
+		<div class="wrapper">
+			Site by <a href="https://twitter.com/skeddles" target="_blank">skeddles</a> <i>•</i> <a class="feedback-link" href="#feedback">Feedback</a> <i>•</i> <a href="https://ko-fi.com/skeddles" target="_blank">Donate</a>
+		
+			<div class="feedback-popup" id="feedback">
+				<form name="feedback" netlify>
+					<textarea name="text" placeholder="Tell us what you think..."></textarea>
+					<button type="submit">Send</button>
+				</form>
+			</div>
+		</div>
+
+
+	</footer>
+
 
 	<script src="js/shape-shading-reference-tool.js"></script>
 </body>

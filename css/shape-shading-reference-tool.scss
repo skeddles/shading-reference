@@ -14,22 +14,88 @@ body {
 	}
 } 
 
+
 canvas {
 	display: block;
 }
 
-section.wrapper {
+$brand1: #ea8840;
+$brand2: #ffb359;
+
+body > footer {
+	background: darken($bg, 3%);
+	padding: 2em 0;
+	text-align: center;
+
+	i {margin: 0 0.5em;}
+	a {
+		color: $brand1;
+		&:hover {color: $brand2};
+	}
+
+	.feedback-popup {
+		display: none;
+
+		&.visible {display: block;}
+
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding: 1em;
+
+			textarea {
+				background: darken($bg, 6%);
+				border-radius: 1em;
+				border: none;
+				width: 30em;
+				padding: 0.75em 1em;
+				color: lighten($bg, 70%);
+			}
+
+			button {
+				background: lighten($bg, 20%);
+				border: none;
+				border-radius: 0.5em;
+				font-size: 1em;
+				margin: 0.5em;
+				padding: 0.5em 1.5em;
+				color: lighten($bg, 70%);
+				cursor: pointer;
+
+				&:hover {background: lighten($bg, 30%); color: lighten($bg, 90%);};
+			}
+		}
+	}
+}
+
+
+.wrapper {
 	max-width: 1200px;
 	margin: 1em auto;
+}
+
+section.wrapper {
+	
+	
 
 	p {
 		max-width: 700px;
 	}
 	
-	h1 {
-		color: lighten($bg, 40%);
+	&>h1 {
+		//color: lighten($bg, 40%);
+		color: $brand1;
 	    font-weight: 900;
-	    font-size: 2.5em
+	    font-size: 2.5em;
+		display: flex;
+		align-items: center;
+		cursor: default;
+		pointer-events: none;
+		margin-left: -1em;
+
+		img {margin-right: 0.25em;}
+		span {color: $brand2; padding-left: 0.25em}
 	}
 
 	h2 {

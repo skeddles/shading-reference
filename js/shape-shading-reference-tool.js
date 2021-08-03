@@ -8,6 +8,7 @@ const THUMBNAILMODE = false;
 //=include _newToonMaterial.js
 //=include _viewer.js
 //=include _popup.js
+//=include _feedback.js
 //=include _loadExampleFromURL.js
 
 const PRESETS = 
