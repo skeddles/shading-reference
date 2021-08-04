@@ -7,7 +7,7 @@
 				"color": "#726672"
 			},
 			"camera": {
-				"spin": 0,  
+				"spin": 0,   
 				"orbit": 0 
 			},
 			"light": {
@@ -226,7 +226,7 @@
 	"pyramid": [
 		{
 			"object": {
-				"shape": "pyramid"
+				"shape": "pyramid" 
 			},
 			"camera": {
 				"spin": 0,

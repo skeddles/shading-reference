@@ -16,11 +16,11 @@ function loadExampleFromURL () {
 	if (!selectedShape) selectedShape = 'sphere';	
 	else if (!PRESETS.hasOwnProperty(selectedShape)) return console.error('SHAPE TYPE IS INVALID:', selectedShape);
 
-	//get the baseshape of the preset (to load in their default values)
-	let baseShape = PRESETS[selectedShape][0] || {};
+	//start with sphere 0
+	let baseShape = PRESETS['sphere'][0];
 
-	deepMergeObjects(baseShape, PRESETS['sphere'][0]);
-	deepMergeObjects(baseShape, PRESETS[selectedShape][0]);
+	//merge the preset of the first shape of the same type
+	baseShape = deepMergeObjects(baseShape, PRESETS[selectedShape][0]);
 		console.log('defaulting with',selectedShape+'[0]',baseShape);
 		
 	//load the preset of the base shape first

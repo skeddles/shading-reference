@@ -46,8 +46,9 @@ function initGui () {
 			});
 		
 		//roughness
-		gui.object.roughness = gui.object.add(material, 'roughness', 0, 1, 0.01)
+		gui.object.roughness = gui.object.add(display, 'materialRoughness', 0, 1, 0.01).name('roughness')
 			.onChange(() => {
+				material.roughness = display.materialRoughness;
 				updateMaterial();
 				console.log('changed roughness',material.roughness);
 			});
@@ -113,7 +114,7 @@ function initGui () {
 						break;
 						
 					case 'smooth': 
-						material = new THREE.MeshStandardMaterial({color: 0x726672, roughness: 0.8});
+						material = new THREE.MeshStandardMaterial({color: 0x726672, roughness: display.materialRoughness});
 						updateMaterial();
 
 						//display.gui.toonShadingOptions.forEach(o=>{console.log('w',o)});

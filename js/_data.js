@@ -9,6 +9,7 @@ const display = {
 	currentCamera: null,
 	shading: 'smooth',
 	toon: {shades: 3},
+	materialRoughness: 0.5
 };
 
 var gui = {}; 
