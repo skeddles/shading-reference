@@ -298,5 +298,51 @@
 				"orbit": 225
 			}
 		}
+	],
+	"head": [
+		{
+			"object": {
+				"shape": "head"
+			},
+			"camera": {
+				"spin": 0,
+				"orbit": 0
+			},
+			"light": {
+				"spin": 45,
+				"orbit": 135 
+			}
+		},  
+		{ 
+			"camera": {
+				"spin": 337
+			},
+			"light": {
+				"spin": 90,
+				"orbit": 150 
+			}
+		},
+		{
+			"camera": {
+				"spin": 270
+			},
+			"light": {
+				"spin": 0,
+				"orbit": 90 
+			}
+		},
+		{	
+			"camera": {
+				"spin": 330,
+				"orbit": 10
+			},
+			"light": {
+				"spin": 56,
+				"orbit": 133 
+			},
+			"shading": {
+				"type": "toon"
+			}
+		}
 	]
 }
