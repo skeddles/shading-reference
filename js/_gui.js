@@ -135,8 +135,8 @@ function initGui () {
 			.onChange(() => {
 				material = newToonMaterial(display.toon.shades);
 				updateMaterial();
-			})
-			.domElement.closest('li').classList.add('subOption','toon');
+			});
+			gui.shading.shades.domElement.closest('li').classList.add('subOption','toon');
 
 	//COMPLETE -- the gui has been created an initialized
 	Array.from($$('#gui input[type="checkbox"]')).forEach((e,i)=>{

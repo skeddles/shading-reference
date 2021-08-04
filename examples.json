@@ -22,22 +22,21 @@
 			}
 		},
 		{
-			"object": {
-				"color": "#ff0000"
+			"light": {
+				"spin": "90",
+				"orbit": "225"
 			}
 		},
 		{
-			"object": {
-				"color": "#00ff00"
-			}
-		},
-		{
-			"object": {
-				"color": "#0000ff",
-				"roughness": 0.25
-			},
 			"shading": {
-				"type": "toon"
+				"type": "toon",
+				"shades": "5"
+			}
+		},
+		{
+			"light": {
+				"spin": "320",
+				"orbit": "240"
 			}
 		}
 	],
@@ -86,9 +85,7 @@
 			}
 		},
 		{
-			"object": {
-				"shape": "cylinder"
-			}
+
 		},
 		{
 			"object": {
@@ -124,36 +121,6 @@
 			"object": {
 				"color": "#00ff00"
 			}
-		},
-		{	
-			"object": {
-				"color": "#0000ff"
-			}
-		}
-	],
-	"suzanne": [
-		{
-			"object": {
-				"shape": "suzanne"
-			},
-			"camera": {
-				"spin": 0,
-				"orbit": 0
-			},
-			"light": {
-				"spin": 45,
-				"orbit": 135
-			}
-		},
-		{
-			"object": {
-				"color": "#ff0000"
-			}
-		},
-		{
-			"object": {
-				"color": "#00ff00"
-			} 
 		},
 		{	
 			"object": {

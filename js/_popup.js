@@ -17,8 +17,8 @@ document.addEventListener('click', e=>{
 			if (typeof data[k] == "object" && data[k] !== null)
 				loadExampleData(data[k],guiObj[k],data[k]); 
 			else {
-				console.log('> setting',k,'to',data[k]); 
-				console.warn('>>',display.currentShape.material?display.currentShape.material.color:'not defined yet',display.currentShape.material?display.currentShape.material.roughness:'not defined yet'); 
+				console.log('> setting',k,'to',data[k], guiObj.hasOwnProperty(k)); 
+				console.warn('>>',guiObj, guiObj[k]); 
 				guiObj[k].setValue(data[k]);
 			}
 		}
