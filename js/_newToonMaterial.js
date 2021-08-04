@@ -13,5 +13,5 @@ function newToonMaterial(shades) {
 	gradientMap.generateMipmaps = false;
 
 	//done
-	return new THREE.MeshToonMaterial({color: 0x726672,gradientMap: gradientMap});
-}
+	return new THREE.MeshToonMaterial({color: display.currentShape.material.color, gradientMap: gradientMap});
+} 

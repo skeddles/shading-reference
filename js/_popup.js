@@ -18,6 +18,7 @@ document.addEventListener('click', e=>{
 				loadExampleData(data[k],guiObj[k],data[k]); 
 			else {
 				console.log('> setting',k,'to',data[k]); 
+				console.warn('>>',display.currentShape.material?display.currentShape.material.color:'not defined yet',display.currentShape.material?display.currentShape.material.roughness:'not defined yet'); 
 				guiObj[k].setValue(data[k]);
 			}
 		}
@@ -45,6 +46,7 @@ document.addEventListener('click', e=>{
 
 	loadExampleData(data,gui);
 
+	console.warn('>>>>',display.currentShape.material?display.currentShape.material.color:'not defined yet',display.currentShape.material?display.currentShape.material.roughness:'not defined yet'); 
 
 	console.log('done')
 	//show renderer

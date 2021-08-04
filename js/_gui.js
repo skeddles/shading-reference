@@ -52,8 +52,13 @@ function initGui () {
 				updateMaterial();
 				console.log('changed roughness',material.roughness);
 			});
-		gui.object.color = gui.object.addColor(new ColorGUIHelper(material, 'color'), 'value').name('color');
-
+		let guiMat = material;
+		gui.object.color = gui.object.addColor(new ColorGUIHelper(guiMat, 'color'), 'value').name('color')
+			.onChange(() => {
+				material.color = guiMat.color;
+				updateMaterial();
+				console.warn('changed material color',display.currentShape.material.color); 
+			});
 	//CAMERA
 	gui.camera = gui.addFolder('Camera');
 	gui.camera.open();
@@ -114,7 +119,7 @@ function initGui () {
 						break;
 						
 					case 'smooth': 
-						material = new THREE.MeshStandardMaterial({color: 0x726672, roughness: display.materialRoughness});
+						material = new THREE.MeshStandardMaterial({color: display.currentShape.material.color, roughness: display.materialRoughness});
 						updateMaterial();
 
 						//display.gui.toonShadingOptions.forEach(o=>{console.log('w',o)});
@@ -151,6 +156,7 @@ function updateShape (newShape) {
 
 function updateMaterial () {
 	display.currentShape.material = material;
+	console.log('updated material')
 }
 	
 class ColorGUIHelper {
@@ -159,9 +165,11 @@ class ColorGUIHelper {
 		this.prop = prop;
 	}
 	get value() {
+		console.log('getting color');
 		return `#${this.object[this.prop].getHexString()}`;
 	}
 	set value(hexString) {
+		console.log('setting color',hexString,this.object,this.prop);
 		this.object[this.prop].set(hexString);
 	}
 }

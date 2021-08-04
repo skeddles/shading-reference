@@ -22,18 +22,22 @@
 			}
 		},
 		{
-			"light": {
+			"object": {
 				"color": "#ff0000"
 			}
 		},
 		{
-			"light": {
+			"object": {
 				"color": "#00ff00"
 			}
 		},
 		{
-			"light": {
-				"color": "#0000ff"
+			"object": {
+				"color": "#0000ff",
+				"roughness": 0.25
+			},
+			"shading": {
+				"type": "toon"
 			}
 		}
 	],
@@ -52,17 +56,17 @@
 			}
 		},
 		{
-			"light": {
+			"object": {
 				"color": "#ff0000"
 			}
 		},
 		{
-			"light": {
+			"object": {
 				"color": "#00ff00"
 			}
 		},
 		{	
-			"light": {
+			"object": {
 				"color": "#0000ff"
 			}
 		}
@@ -84,24 +88,15 @@
 		{
 			"object": {
 				"shape": "cylinder"
-			},
-			"light": {
-				"color": "#ff0000"
 			}
 		},
 		{
 			"object": {
-				"shape": "cylinder"
-			},
-			"light": {
 				"color": "#00ff00"
 			}
 		},
 		{	
 			"object": {
-				"shape": "cylinder"
-			},
-			"light": {
 				"color": "#0000ff"
 			}
 		}
@@ -122,25 +117,16 @@
 		},
 		{
 			"object": {
-				"shape": "cone"
-			},
-			"light": {
 				"color": "#ff0000"
 			}
 		},
 		{
 			"object": {
-				"shape": "cone"
-			},
-			"light": {
 				"color": "#00ff00"
 			}
 		},
 		{	
 			"object": {
-				"shape": "cone"
-			},
-			"light": {
 				"color": "#0000ff"
 			}
 		}
@@ -161,25 +147,16 @@
 		},
 		{
 			"object": {
-				"shape": "suzanne"
-			},
-			"light": {
 				"color": "#ff0000"
 			}
 		},
 		{
 			"object": {
-				"shape": "suzanne"
-			},
-			"light": {
 				"color": "#00ff00"
 			} 
 		},
 		{	
 			"object": {
-				"shape": "suzanne"
-			},
-			"light": {
 				"color": "#0000ff"
 			}
 		}
@@ -200,25 +177,16 @@
 		},
 		{
 			"object": {
-				"shape": "ramp"
-			},
-			"light": {
 				"color": "#ff0000"
 			}
 		},
 		{
 			"object": {
-				"shape": "ramp"
-			},
-			"light": {
 				"color": "#00ff00"
 			}
 		},
 		{	
 			"object": {
-				"shape": "ramp"
-			},
-			"light": {
 				"color": "#0000ff"
 			}
 		}
@@ -239,25 +207,16 @@
 		},
 		{
 			"object": {
-				"shape": "pyramid"
-			},
-			"light": {
 				"color": "#ff0000"
 			}
 		},
 		{
 			"object": {
-				"shape": "pyramid"
-			},
-			"light": {
 				"color": "#00ff00"
 			}
 		},
 		{	
 			"object": {
-				"shape": "pyramid"
-			},
-			"light": {
 				"color": "#0000ff"
 			}
 		}
@@ -278,25 +237,16 @@
 		},
 		{
 			"object": {
-				"shape": "doughnut"
-			},
-			"light": {
 				"color": "#ff0000"
 			}
 		},
 		{
 			"object": {
-				"shape": "doughnut"
-			},
-			"light": {
 				"color": "#00ff00"
 			}
 		},
 		{	
 			"object": {
-				"shape": "doughnut"
-			},
-			"light": {
 				"color": "#0000ff"
 			}
 		}
