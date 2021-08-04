@@ -100,18 +100,21 @@ function initGui () {
 	gui.shading.open();
 		
 		//shading type
-		gui.shading.type = gui.shading.add(display, 'shading', ['smooth','toon'])
-			.onChange(() => {
-				console.log('changing shape to',display.shading)
+		gui.shading.type = gui.shading.add(display, 'shading', ['smooth','toon']).name('type')
+			.onChange(() => { 
+				console.log('changing shading type to',display.shading)
 				switch (display.shading) {
 					case 'toon':
-						display.currentShape.material = newToonMaterial(3);
+						material = newToonMaterial(3);
+						updateMaterial();
+
 						gui.domElement.classList.add('showToonOptions');
 						
 						break;
 						
 					case 'smooth': 
-						display.currentShape.material = new THREE.MeshStandardMaterial({color: 0x726672, roughness: 0.8});
+						material = new THREE.MeshStandardMaterial({color: 0x726672, roughness: 0.8});
+						updateMaterial();
 
 						//display.gui.toonShadingOptions.forEach(o=>{console.log('w',o)});
 						gui.domElement.classList.remove('showToonOptions');
@@ -126,7 +129,7 @@ function initGui () {
 			.onChange(() => {
 				material = newToonMaterial(display.toon.shades);
 				updateMaterial();
-				})
+			})
 			.domElement.closest('li').classList.add('subOption','toon');
 
 	//COMPLETE -- the gui has been created an initialized
