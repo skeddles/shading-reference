@@ -55,18 +55,33 @@
 			}
 		},
 		{
-			"object": {
-				"color": "#ff0000"
+			"camera": {
+				"spin": 90,
+				"orbit": 45
+			},
+			"light": {
+				"spin": 339,
+				"orbit": 212
 			}
 		},
 		{
-			"object": {
-				"color": "#00ff00"
+			"camera": {
+				"spin": 23,
+				"orbit": 0
+			},
+			"light": {
+				"spin": 23,
+				"orbit": 147
 			}
 		},
 		{	
-			"object": {
-				"color": "#0000ff"
+			"camera": {
+				"spin": 50,
+				"orbit": 58
+			},
+			"light": {
+				"spin": 74,
+				"orbit": 154
 			}
 		}
 	],
@@ -85,16 +100,25 @@
 			}
 		},
 		{
-
+			"camera": {
+				"orbit": 50
+			},
+			"light": {
+				"spin": 90
+			}
 		},
 		{
-			"object": {
-				"color": "#00ff00"
+			"camera": {
+				"orbit": 0
 			}
 		},
 		{	
-			"object": {
-				"color": "#0000ff"
+			"camera": {
+				"orbit": 62
+			},
+			"light": {
+				"spin": 112,
+				"orbit": 152
 			}
 		}
 	],
@@ -113,26 +137,6 @@
 			}
 		},
 		{
-			"object": {
-				"color": "#ff0000"
-			}
-		},
-		{
-			"object": {
-				"color": "#00ff00"
-			}
-		},
-		{	
-			"object": {
-				"color": "#0000ff"
-			}
-		}
-	],
-	"ramp": [
-		{
-			"object": {
-				"shape": "ramp"
-			},
 			"camera": {
 				"spin": 0,
 				"orbit": 0
@@ -143,18 +147,66 @@
 			}
 		},
 		{
-			"object": {
-				"color": "#ff0000"
-			}
-		},
-		{
-			"object": {
-				"color": "#00ff00"
+			"camera": {
+				"orbit": 80
+			},
+			"light": {
+				"spin": 80,
+				"orbit": 72
+			},
+			"shading": {
+				"type": "toon",
+				"shades": 6
 			}
 		},
 		{	
+			"camera": {
+				"orbit": 58
+			},
+			"light": {
+				"spin": 180
+			}
+		}
+	],
+	"ramp": [
+		{
 			"object": {
-				"color": "#0000ff"
+				"shape": "ramp"
+			},
+			"camera": {
+				"spin": 45,
+				"orbit": 0
+			},
+			"light": {
+				"spin": 45,
+				"orbit": 135
+			}
+		},
+		{
+			"camera": {
+				"spin": 70
+			},
+			"light": {
+				"orbit": 162
+			}
+		},
+		{
+			"camera": {
+				"spin": 180,
+				"orbit": 66
+			},
+			"light": {
+				"spin": 140,
+				"orbit": 158
+			}
+		},
+		{	
+			"camera": {
+				"spin": 235
+			},
+			"light": {
+				"spin": 262,
+				"orbit": 148
 			}
 		}
 	],
@@ -165,26 +217,41 @@
 			},
 			"camera": {
 				"spin": 0,
-				"orbit": 0
+				"orbit": 70
 			},
 			"light": {
-				"spin": 45,
-				"orbit": 135
+				"spin": 0,
+				"orbit": 158
 			}
 		},
 		{
-			"object": {
-				"color": "#ff0000"
+			"camera": {
+				"spin": 20,
+				"orbit": 45
+			},
+			"light": {
+				"spin": 90,
+				"orbit": 125
 			}
 		},
 		{
-			"object": {
-				"color": "#00ff00"
+			"camera": {
+				"spin": 65,
+				"orbit": 345
+			},
+			"light": {
+				"spin": 155,
+				"orbit": 158
 			}
 		},
 		{	
-			"object": {
-				"color": "#0000ff"
+			"camera": {
+				"spin": 100,
+				"orbit": 37
+			},
+			"light": {
+				"spin": 180,
+				"orbit": 125
 			}
 		}
 	],
@@ -203,18 +270,32 @@
 			}
 		},
 		{
-			"object": {
-				"color": "#ff0000"
+			"camera": {
+				"spin": 125
+			},
+			"light": {
+				"spin": 0,
+				"orbit": 180
 			}
 		},
 		{
-			"object": {
-				"color": "#00ff00"
+			"camera": {
+				"spin": 160,
+				"orbit": 56
+			},
+			"light": {
+				"spin": 72,
+				"orbit": 210
 			}
 		},
 		{	
-			"object": {
-				"color": "#0000ff"
+			"camera": {
+				"spin": 165,
+				"orbit": 5
+			},
+			"light": {
+				"spin": 180,
+				"orbit": 225
 			}
 		}
 	]
