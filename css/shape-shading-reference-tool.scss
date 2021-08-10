@@ -1,6 +1,9 @@
 @import 'dat.gui.css';
 
 $bg: #202632;
+$brand1: #ea8840;
+$brand2: #ffb359;
+$brand3: #ca5834;
 
 body {
 	margin: 0;
@@ -14,13 +17,29 @@ body {
 	}
 } 
 
+.banner {
+	text-align: center;
+	background: $brand3;
+	color: lighten($brand2,20%);
+	padding: 0.75em 0.5em;
+	//text-shadow: 0 1px 0 $brand1;
+
+	a, a:visited {
+		color: lighten($brand2,30%);
+		position: relative;
+		&:hover {
+			color: white;
+			//text-shadow: 0 0 10px lighten($brand2, 20%);
+			text-shadow: 0 1px 0 darken($brand3,15%);
+			top: -1px;
+		}
+	}
+}
 
 canvas {
 	display: block;
 }
 
-$brand1: #ea8840;
-$brand2: #ffb359;
 
 body > footer {
 	background: darken($bg, 3%);
