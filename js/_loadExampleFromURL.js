@@ -13,7 +13,8 @@ function loadExampleFromURL () {
 		console.log('shape:',selectedShape);
 	
 	//make sure shape is valid
-	if (!selectedShape) selectedShape = 'sphere';	
+	//if (!selectedShape) selectedShape = 'sphere';	
+	if (!selectedShape) return console.error('SHAPE TYPE IS INVALID:', selectedShape);
 	else if (!PRESETS.hasOwnProperty(selectedShape)) return console.error('SHAPE TYPE IS INVALID:', selectedShape);
 
 	//start with sphere 0
