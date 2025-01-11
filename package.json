@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "build.js",
 	"scripts": {
-		"dev": "npm run serve & npm run watch",
+		"dev": "concurrently \"npm run serve\" \"npm run watch\"",
 		"serve": "http-server ./build",
 		"build": "gulp",
 		"watch": "gulp watch"
@@ -28,5 +28,8 @@
 		"sass": "^1.83.1",
 		"through2": "^4.0.2",
 		"uglify-es": "^3.3.9"
+	},
+	"devDependencies": {
+		"concurrently": "^9.1.2"
 	}
 }
