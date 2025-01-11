@@ -19,11 +19,12 @@
 		"gulp-imagemin": "^7.1.0",
 		"gulp-include": "^2.4.1",
 		"gulp-rename": "^2.0.0",
-		"gulp-sass": "^4.1.0",
+		"gulp-sass": "^6.0.0",
 		"gulp-sourcemaps": "^3.0.0",
 		"gulp-uglify": "^3.0.2",
 		"gulp-util": "^3.0.8",
 		"puppeteer": "^9.1.1",
+		"sass": "^1.83.1",
 		"through2": "^4.0.2",
 		"uglify-es": "^3.3.9"
 	}
