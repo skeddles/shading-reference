@@ -2,3 +2,4 @@ node_modules
 build/*
 .history
 models/models.blend1
+.vscode
