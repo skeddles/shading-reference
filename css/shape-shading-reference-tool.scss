@@ -15,6 +15,10 @@ body {
 	&.editorOpen {
 		overflow: hidden;
 	}
+
+	&.dragging {
+		cursor: move;
+	}
 } 
 
 .banner {

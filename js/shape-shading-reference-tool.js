@@ -10,6 +10,7 @@ const THUMBNAILMODE = false;
 //=include _popup.js
 //=include _feedback.js
 //=include _loadExampleFromURL.js
+//=include _mouse-tools.js 
 
 const PRESETS = 
 //=include ../examples.json
