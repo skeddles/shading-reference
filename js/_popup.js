@@ -1,11 +1,24 @@
 
+var draggingOnContainer = false;
+
+document.querySelector('#threes-container').addEventListener('mousedown', e=>{
+	draggingOnContainer = true;
+});
+
 //add click handler for preset buttons
 document.addEventListener('click', e=>{
+
+
+
 	//if it was something other than one of the preset buttons
 	if (!e.target.classList.contains('preset')) {
 		//check if the editor is open, and you clicked outside of the popup, close it
-		if (document.body.classList.contains('editorOpen') && !e.target.closest('#threes-container')) 
-			document.body.classList.remove('editorOpen'); 
+		if (document.body.classList.contains('editorOpen'))
+			if (!e.target.closest('#threes-container')) 
+				if (!draggingOnContainer)
+					document.body.classList.remove('editorOpen'); 
+				
+		if (draggingOnContainer) draggingOnContainer = false;
 
 		//stop processing click
 		return;

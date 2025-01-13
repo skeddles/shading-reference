@@ -1,7 +1,7 @@
 
 const MOUSE_DRAG_SPEED = 0.5;
 
-const MOUSE = {
+const MOUSE_CONTROL = {
 	start: {
 		x: 0,
 		y: 0
@@ -18,35 +18,37 @@ const MOUSE = {
 };
 
 document.querySelector('#threes-container').addEventListener('mousedown', e=>{
-	MOUSE.down = true;
-	MOUSE.start.x = e.clientX;
-	MOUSE.start.y = e.clientY;
-	MOUSE.startValues.orbit = gui.camera.orbit.getValue();
-	MOUSE.startValues.spin = gui.camera.spin.getValue();
+	MOUSE_CONTROL.down = true;
+	MOUSE_CONTROL.start.x = e.clientX;
+	MOUSE_CONTROL.start.y = e.clientY;
+	MOUSE_CONTROL.startValues.orbit = gui.camera.orbit.getValue();
+	MOUSE_CONTROL.startValues.spin = gui.camera.spin.getValue();
 
 	document.querySelector('body').classList.add('dragging');
 });  
 
 document.addEventListener('mouseup', e=>{
-	MOUSE.down = false;
+	MOUSE_CONTROL.down = false;
 
 	document.querySelector('body').classList.remove('dragging');
 
-	gui.camera.spin.setValue(MOUSE.newValues.spin);
-	gui.camera.orbit.setValue(MOUSE.newValues.orbit);
+	gui.camera.spin.setValue(MOUSE_CONTROL.newValues.spin);
+	gui.camera.orbit.setValue(MOUSE_CONTROL.newValues.orbit);
+
+	console.log('mouse tools mouse up');
 });
 
 document.addEventListener('mousemove', e=>{
-	if (!MOUSE.down) return;
+	if (!MOUSE_CONTROL.down) return;
 
-	let xDistance = (e.clientX - MOUSE.start.x) * MOUSE_DRAG_SPEED;
-	let yDistance = (e.clientY - MOUSE.start.y) * MOUSE_DRAG_SPEED;
+	let xDistance = (e.clientX - MOUSE_CONTROL.start.x) * MOUSE_DRAG_SPEED;
+	let yDistance = (e.clientY - MOUSE_CONTROL.start.y) * MOUSE_DRAG_SPEED;
 
-	MOUSE.newValues.orbit = wrapDegrees(MOUSE.startValues.orbit + yDistance);
-	MOUSE.newValues.spin = wrapDegrees(MOUSE.startValues.spin - xDistance);
+	MOUSE_CONTROL.newValues.orbit = wrapDegrees(MOUSE_CONTROL.startValues.orbit + yDistance);
+	MOUSE_CONTROL.newValues.spin = wrapDegrees(MOUSE_CONTROL.startValues.spin - xDistance);
 
-	gui.camera.spin.setValue(MOUSE.newValues.spin);
-	gui.camera.orbit.setValue(MOUSE.newValues.orbit);
+	gui.camera.spin.setValue(MOUSE_CONTROL.newValues.spin);
+	gui.camera.orbit.setValue(MOUSE_CONTROL.newValues.orbit);
 	
 	console.log('x',xDistance,'y',yDistance);
 });
