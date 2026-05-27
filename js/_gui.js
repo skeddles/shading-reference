@@ -121,7 +121,7 @@ function initGui () {
 				console.log('changing shading type to',display.shading)
 				switch (display.shading) {
 					case 'toon':
-						material = newToonMaterial(3);
+						material = newToonMaterial(display.toon.shades);
 						updateMaterial();
 
 						gui.domElement.classList.add('showToonOptions');
@@ -159,6 +159,14 @@ function updateShape (newShape) {
 	let addedShape = scene.add(newShape);
 
 	display.currentShape = newShape;
+
+	// If toon was selected before the GLB finished loading, the toon material
+	// was built against the placeholder Object3D -- rebuild it now that the
+	// real mesh is in place so the gradient DataTexture binds cleanly.
+	if (display.shading === 'toon') {
+		material = newToonMaterial(display.toon.shades);
+	}
+
 	updateMaterial();
 
 	window.exampleLoaded = true;
