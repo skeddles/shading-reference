@@ -18,6 +18,8 @@ const MOUSE_CONTROL = {
 };
 
 document.querySelector('#threes-container').addEventListener('mousedown', e=>{
+	if (e.target.closest('#gui')) return;
+
 	MOUSE_CONTROL.down = true;
 	MOUSE_CONTROL.start.x = e.clientX;
 	MOUSE_CONTROL.start.y = e.clientY;
