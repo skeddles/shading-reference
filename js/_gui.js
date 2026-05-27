@@ -59,6 +59,16 @@ function initGui () {
 				updateMaterial();
 				console.warn('changed material color',display.currentShape.material.color); 
 			});
+
+	//BACKGROUND
+	gui.background = gui.addFolder('Background');
+	gui.background.open();
+	
+	gui.background.color = gui.background.addColor(new ColorGUIHelper(guiMat, 'color'), 'value').name('color')
+		.onChange(() => {
+			renderer.setClearColor(guiMat.color);
+		});
+		
 	//CAMERA
 	gui.camera = gui.addFolder('Camera');
 	gui.camera.open();
